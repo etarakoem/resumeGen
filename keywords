@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then
+	echo "Usage: keywords [requirement] [List]"
+	exit 1
+fi
+
+requirement=$1
+count=0
+declare -a list=($(cat $2 | tr '\n' ' '))
+
+for item in ${list[@]}
+do
+if grep -q -i $item $requirement; then
+	((count++))
+fi
+done
+
+echo $count
+#return $count
+#echo "Matches: $count"
