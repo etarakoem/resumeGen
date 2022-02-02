@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+if [[ $# -lt 2 ]]; then
+	echo "Usage: pdf [HTML File] [Output file]"
+	exit 0
+fi
+chrome --headless --disable-gpu --print-to-pdf-no-header --print-to-pdf=$2 $1 2>/dev/null
