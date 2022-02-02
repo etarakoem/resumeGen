@@ -8,7 +8,7 @@ Generate my own Resume and Cover Letter using Bash Scripting and Unix commands.
 
 - Some set up, including setting your own Resume format, with names, contact number, keywords for job you're looking for, the work experience files. Will be update in the future
 
-Usage: htmlgen
+Usage: resumeGen
 
 Follow the prompt to finish the set up
 

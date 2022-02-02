@@ -1,7 +1,8 @@
 #!/bin/bash
+# A script which count for keywords found in file
 
 if [[ $# -eq 0 ]]; then
-	echo "Usage: keywords [requirement] [List]"
+	echo "Usage: $0 [requirement] [List]"
 	exit 1
 fi
 
@@ -17,5 +18,3 @@ fi
 done
 
 echo $count
-#return $count
-#echo "Matches: $count"

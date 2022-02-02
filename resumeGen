@@ -10,14 +10,14 @@ fi
 printf "Generate Folder for this job. Please provide Company name \nCompany name: "
 read companyName
 
-printf "Please provide a folder name for this job. The folder must have different name than the company name \n
+printf "Please provide a folder name for this job. \nThe folder must have different name than the company name \n
 Folder name to save at: "
 
 read folder
 
 jobgen $companyName $folder
 
-printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D"
+printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D\n"
 
 input=$(cat)
 
@@ -34,15 +34,18 @@ secCount=`keywords rec $security`
 webCount=`keywords rec $web`
 qaCount=`keywords rec $qa`
 devCount=`keywords rec $dev`
-#echo " secCount: $secCount"
-printf "========Job Matches========\n
-SoftDev matches: $devCount \n
-Security matches: $secCount \n
-QA matches: $qaCount \n
-WebDev matches: $webCount\n
-==============================\n"
 
-bank=$dev
+printf "
+========Job Matches========\n
+SoftDev matches:  $devCount\n
+Security matches: $secCount\n
+QA matches:       $qaCount\n
+WebDev matches:   $webCount\n
+===========================\n"
+
+#Default Resume as CyberSecurity:
+bank=$security
+
 findMax () {
     max=$1
     shift 
@@ -57,6 +60,7 @@ findMax () {
 	    max=$i
 	fi
     done
+    printf "This job is best suit for "
     case $result in
 	1)
 	    echo "Software Dev"
@@ -64,7 +68,7 @@ findMax () {
 	    ;;
 	2)
 	    echo "Security"
-	    bank=$sec
+	    bank=$security
 	    ;;
 	3)
 	    echo "QA"
@@ -77,13 +81,20 @@ findMax () {
     esac
 }
 
-findMax $devCount $secCount $qaCount $webCount
+if [[ $devCount -eq 0 && $secCount -eq 0 && $qaCount -eq 0 && $webCount -eq 0 ]]
+then
+    echo "General Resume, Is this a Technical Job even?"
+    bank=general
+else
+    findMax $devCount $secCount $qaCount $webCount
+fi
 
 declare -a listquali
 
 requirement=qualiSum
 
 declare -a list=($(cat $bank | tr '\n' ' '))
+
 for item in ${list[@]}
 do
     listquali+=(`grep -ni "$item" $requirement | cut -f1 -d:`)
@@ -236,7 +247,7 @@ cat <<EOF> $outfile
   <body>
 
     <h1 style="margin-bottom:0;">Phuc Hua</h1>
-    <p style="text-align: center; margin: 0; padding-top : 0;">Mississauga,ON  | (Phone Number) | <span class="blue">Email Example@gmail.com</span> | <span class="blue">Linkedin Link</span>
+    <p style="text-align: center; margin: 0; padding-top : 0;">Mississauga,ON  | (Phone Number) | <span class="blue">(Email)</span> | <span class="blue">https://www.linkedin.com/in/samuel-hua/</span>
     </p>
 EOF
 
@@ -275,14 +286,14 @@ done
 cat<<'EOF'>> $outfile
    <h2>Education</h2>
     <div class="column left white">
-      <p>Bachelor of Science, Computer Science XXXX University</p>
+      <p>Bachelor of Science, Computer Science Ryerson University</p>
     </div>
     <div class="column right">
-      <p>September XXXX - present</p>
+      <p>September 2020 - present</p>
     </div>
     <div class="column left white">
-      <p>Expected graduation: June XXXX </p>
-      <p>CGPA: XXXX</p>
+      <p>Expected graduation: June 2024 </p>
+      <p>CGPA: 3.4/4.33</p>
     </div>
 </html>
 EOF
@@ -290,8 +301,9 @@ EOF
 
 # Main Program
 
-namePDF=$outfile.pdf
+namePDF=$companyName.pdf
 pdf $outfile $namePDF
+
 mv $outfile $folder
 mv $namePDF $folder
 
