@@ -39,6 +39,11 @@ Sincerely,\n
 echo "Phuc Hua" >> $fileName
 
 mkdir $2
-mv $fileName $2
+
+pdf $fileName $fileName.pdf
+
+mv $fileName.pdf $2
+
+rm $fileName
 
 echo "Making Files for company: $companyName"

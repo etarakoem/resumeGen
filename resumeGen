@@ -307,4 +307,11 @@ pdf $outfile $namePDF
 mv $outfile $folder
 mv $namePDF $folder
 
-echo "File successfully save as $outfile and as $namePDF in $folder"
+echo "Your resume is successfully save as as $namePDF in $folder"
+
+cd $folder
+rm $outfile
+rm $companyName
+cd ..
+
+
