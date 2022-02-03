@@ -15,8 +15,6 @@ Folder name to save at: "
 
 read folder
 
-jobgen $companyName $folder
-
 printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D\n"
 
 input=$(cat)
