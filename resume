@@ -10,7 +10,7 @@ fi
 printf "Please provide Company name \nCompany name: "
 read companyName
 
-companyName="{companyName// /_}"
+companyName="${companyName// /_}"
 
 printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D\n"
 
