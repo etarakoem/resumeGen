@@ -44,7 +44,7 @@ printf "<p>Phuc Hua</p>\n
 
 namepdf=coverLetter_$companyName.pdf
 
-pdf $fileName $namepdf
+.files/pdf $fileName $namepdf
 
 mkdir $2
 

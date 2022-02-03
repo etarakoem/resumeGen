@@ -24,7 +24,7 @@ Folder name to save at: "
 
 read folder
 
-jobgen $companyName $folder
+.files/jobgen $companyName $folder
 
 companyName="${companyName// /_}"
 
@@ -37,10 +37,10 @@ touch rec
 echo $input > rec
 
 # Must include Keywords script
-secCount=`keywords rec $security`
-webCount=`keywords rec $web`
-qaCount=`keywords rec $qa`
-devCount=`keywords rec $dev`
+secCount=`.files/keywords rec $security`
+webCount=`.files/keywords rec $web`
+qaCount=`.files/keywords rec $qa`
+devCount=`.files/keywords rec $dev`
 
 printf "
 ========Job Matches========\n
@@ -304,7 +304,7 @@ EOF
 # Main Program
 
 namePDF=$companyName.pdf
-pdf $outfile $namePDF
+.files/pdf $outfile $namePDF
 
 mv $namePDF $folder
 

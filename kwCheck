@@ -8,16 +8,16 @@ input=$(cat)
 echo $input > rec
 
 # Keywords files.
-qa=QAKey
-web=webKey
-security=secKey
-dev=devKey
+qa=.files/QAKey
+web=.files/webKey
+security=.files/secKey
+dev=.files/devKey
 
 # Must include Keywords script
-secCount=`keywords rec $security`
-webCount=`keywords rec $web`
-qaCount=`keywords rec $qa`
-devCount=`keywords rec $dev`
+secCount=`.files/keywords rec $security`
+webCount=`.files/keywords rec $web`
+qaCount=`.files/keywords rec $qa`
+devCount=`.files/keywords rec $dev`
 
 printf "
 ========Job Matches========\n
