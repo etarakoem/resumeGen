@@ -18,10 +18,18 @@ Copy these steps for installing into your terminal. Run this script using termin
 ### Executing program
 
 * Get the Job you desire ready, then copy them into the clipboard
-Run by typing down this command and follow the prompt
+To get a full package (resume + cover letter):
 
 ```
   ./resumeGen
+```
+To generate only the resume:
+```
+  ./resume
+```
+To generate only the cover Letter:
+```
+  ./cover
 ```
 
 ## Authors
