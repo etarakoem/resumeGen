@@ -17,6 +17,8 @@ read folder
 
 jobgen $companyName $folder
 
+companyName="{companyName// /_}"
+
 printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D\n"
 
 input=$(cat)
