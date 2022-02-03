@@ -43,6 +43,6 @@ namePDF=coverLetter_$companyName.pdf
 
 pdf $fileName $namePDF
  
-#rm $fileName
+rm $fileName
 
 echo "Making Files for company: $namePDF"

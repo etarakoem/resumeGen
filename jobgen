@@ -48,6 +48,8 @@ namepdf=coverLetter_$companyName.pdf
 
 pdf $fileName $namepdf
 
+mkdir $2
+
 mv $namepdf $2
 
 rm $fileName
