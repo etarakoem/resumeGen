@@ -10,8 +10,6 @@ printf "Job Number: "
 read jobNum
 
 # Get Company name
-#printf "Company Name: "
-#read companyName
 companyName=$1
 
 # Get date today

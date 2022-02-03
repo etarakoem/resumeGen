@@ -45,4 +45,4 @@ pdf $fileName $namePDF
  
 rm $fileName
 
-echo "Making Files for company: $namePDF"
+echo "Making Cover Letter for $companyName: $namePDF"
