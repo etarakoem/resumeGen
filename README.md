@@ -40,6 +40,11 @@ When is asked for the Company requirement, remember to Enter and press Ctrl + D 
   ./cover
 ```
 
+* To check for keywords scanned from job posting
+```
+  ./kwCheck
+```
+
 ## Authors
 
 Contributors by me
