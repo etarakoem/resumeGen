@@ -1,0 +1,20 @@
+#!/bin/bash
+# A script which count for keywords found in file
+
+if [[ $# -eq 0 ]]; then
+	echo "Usage: $0 [requirement] [List]"
+	exit 1
+fi
+
+requirement=$1
+count=0
+declare -a list=($(cat $2 | tr '\n' ' '))
+
+for item in ${list[@]}
+do
+if grep -q -i $item $requirement; then
+	((count++))
+fi
+done
+
+echo $count
