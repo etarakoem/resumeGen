@@ -21,7 +21,7 @@ Copy these steps for installing into your terminal. Run this script using termin
 Run by typing down this command and follow the prompt
 
 ```
-  resumeGen
+  ./resumeGen
 ```
 
 ## Authors
