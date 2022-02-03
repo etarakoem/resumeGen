@@ -8,28 +8,29 @@ Generate my own Resume and Cover Letter using Bash Scripting and Unix commands.
 
 ### Installing
 
-* Git clonning 
+* Git clonning
+Copy these steps for installing into your terminal. Run this script using terminals.
 ```
   cd ~/Desktop
-  git clone <links>
+  git clone https://github.com/etarakoem/resumeGen.git 
   chmod +x resumeGen
-  chmod +x 
+  chmod +x jobgen
+  chmod +x keywords
 ```
 
 ### Executing program
 
 * Get the Job you desire ready, then copy them into the clipboard
-* 
-## Help
+Run by typing down this command and follow the prompt
 
-Any advise for common problems or issues.
 ```
-command to run if program contains helper info
+  resumeGen
 ```
 
 ## Authors
 
-Contributors names and contact info
+Contributors by me
+
 ## Requirement:
 
 - [Headless Chrome convert html to pdf](https://developers.google.com/web/updates/2017/04/headless-chrome)
@@ -37,11 +38,6 @@ Contributors names and contact info
 - Some set up, including setting your own Resume format, with names, contact number, keywords for job you're looking for, the work experience files. Will be update in the future
 
 - Git in command line to clone this repo and use it
-
-## Clonning/ Installation
-
-
-Usage: resumeGen
 
 Follow the prompt to finish the set up
 
