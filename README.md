@@ -13,9 +13,6 @@ Copy these steps for installing into your terminal. Run this script using termin
 ```
   cd ~/Desktop
   git clone https://github.com/etarakoem/resumeGen.git 
-  chmod +x resumeGen
-  chmod +x jobgen
-  chmod +x keywords
 ```
 
 ### Executing program
