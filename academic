@@ -1,7 +1,7 @@
 Cover Letter and Resume Generator script - Side project 
 Febuary 2022
 Design an automated Bash script to generate cover letters base for job posting base on job numbers, company name and company goals, generating cover letters in less than a minute.
-Develop an automate bash script which classifies job’s position by scanning for keywords from job posting, then generate a corresponding HTML resume and convert to pdf.
+Develop and testing an automate bash script which classifies job’s position by scanning for keywords from job posting, then generate a corresponding HTML resume and convert to pdf.
 Github: https://github.com/etarakoem/resumeGen 
 Cybersecurity practice on TryHackMe: 	
 Summer 2019 - present
