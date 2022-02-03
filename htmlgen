@@ -297,6 +297,7 @@ cat<<'EOF'>> $outfile
       <p>Expected graduation: June 2024 </p>
       <p>CGPA: 3.4/4.33</p>
     </div>
+    </body>	
 </html>
 EOF
 
