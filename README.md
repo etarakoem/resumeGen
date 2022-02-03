@@ -2,6 +2,34 @@
 
 Generate my own Resume and Cover Letter using Bash Scripting and Unix commands.
 
+### Dependencies
+
+* macOS with bash and zsh
+
+### Installing
+
+* Git clonning 
+```
+  cd ~/Desktop
+  git clone <links>
+  chmod +x resumeGen
+  chmod +x 
+```
+
+### Executing program
+
+* Get the Job you desire ready, then copy them into the clipboard
+* 
+## Help
+
+Any advise for common problems or issues.
+```
+command to run if program contains helper info
+```
+
+## Authors
+
+Contributors names and contact info
 ## Requirement:
 
 - [Headless Chrome convert html to pdf](https://developers.google.com/web/updates/2017/04/headless-chrome)
@@ -12,8 +40,6 @@ Generate my own Resume and Cover Letter using Bash Scripting and Unix commands.
 
 ## Clonning/ Installation
 
-  cd ~/Desktop
-  git clone 
 
 Usage: resumeGen
 
