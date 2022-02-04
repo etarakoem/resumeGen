@@ -34,7 +34,7 @@ printf "<p><strong>Availability: </strong> 4 months (May-August 2021)</p>" >> $f
 printf "<p>$day</p>" >> $fileName
 printf "<p>Dear Hiring Manager</p>" >> $fileName
 
-if [ "$#" -eq 0];
+if [ "$#" -eq 0 ]
 then
     printf "<p>It is my great pleasure to apply for the Computer Science Co-op role with $NameSet as posted internally by the Ryerson Co-op Office. As a 2nd-year Computer Science Co-op student at Ryerson University who is passionate about analyzing problems, learning and analyzing malware for cybersecurity issues, this opportunity caught my attention. With my proven academic excellence and certificate, I am confident that my familiarity with Cybersecurity, Web server networking, Penetration testing knowledge would qualify me as a competitive candidate for this position.</p>" >> $fileName
 
