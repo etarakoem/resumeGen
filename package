@@ -24,7 +24,7 @@ Folder name to save at: "
 
 read folder
 
-.files/jobgen $companyName $folder
+cover $companyName $folder
 
 companyName="${companyName// /_}"
 

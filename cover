@@ -6,8 +6,12 @@ read jobNum
 
 # Get Company name
 
-printf "Generate Folder for this job. Please provide Company name \nCompany name: "
-read companyName
+if [ "$#" -eq 0 ]; then
+    printf "Please provide Company name \nCompany name: "
+    read companyName
+else
+    companyName=$1
+fi
 
 # Get date today
 day=`date "+%B %d, %Y"`
@@ -44,6 +48,11 @@ namePDF=coverLetter_$companyName.pdf
 .files/pdf $fileName $namePDF
  
 rm $fileName
-mv $namePDF SingleCover
 
-echo "Making Cover Letter for $companyName: $namePDF. Retrieve file in SingleCover"
+if [ "$#" -eq 2 ]; then
+    mv $namePDF $2
+else
+    mv $namePDF SingleCover
+    echo "Making Cover Letter for $companyName: $namePDF. Retrieve file in SingleCover"
+fi
+
