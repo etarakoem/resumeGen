@@ -2,7 +2,7 @@
 
 if [[ "$#" -gt 0 ]]
 then
-    printf "Generating scripting cover Letter "
+    printf "Generating scripting cover Letter \n"
 fi
 
 # Keywords store in .files folder:
