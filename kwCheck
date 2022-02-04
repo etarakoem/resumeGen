@@ -5,6 +5,7 @@ printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D\n"
 
 input=$(cat)
 
+touch rec
 echo $input > rec
 
 # Keywords files.
@@ -26,3 +27,5 @@ Security matches: $secCount\n
 QA matches:       $qaCount\n
 WebDev matches:   $webCount\n
 ===========================\n"
+
+rm rec
