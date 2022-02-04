@@ -25,7 +25,7 @@ Copy these steps for installing into your terminal. Run this script using termin
 To get a full package (resume + cover letter):
 
 ```
-  ./resumeGen
+  ./package
 ```
 
 When is asked for the Company requirement, remember to Enter and press Ctrl + D to continue.
@@ -34,11 +34,13 @@ When is asked for the Company requirement, remember to Enter and press Ctrl + D 
 ```
   ./resume
 ```
+The list of single Resume can be found in SingleResume folder
 
 * To generate only the cover Letter:
 ```
   ./cover
 ```
+The list of single Cover Letter can be found in SingleCover folder
 
 * To check for keywords scanned from job posting
 ```
@@ -47,7 +49,7 @@ When is asked for the Company requirement, remember to Enter and press Ctrl + D 
 
 ## Authors
 
-Contributors by me
+Contributors by Samuel
 
 ## Requirement:
 
@@ -58,6 +60,6 @@ Contributors by me
   cd .files
   ls
 ```
-Will be update in the future
+Adding function and modifiers will be update in the future
 
 - Samuel -
