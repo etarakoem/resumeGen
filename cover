@@ -6,7 +6,7 @@ read jobNum
 
 # Get Company name
 
-if [ "$#" -eq 0 ]; then
+if [ "$#" -eq 1 ]; then
     printf "Please provide Company name \nCompany name: "
     read companyName
 else

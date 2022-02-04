@@ -15,16 +15,12 @@ web=".files/webKey"
 security=".files/secKey"
 dev=".files/devKey"
 
-
-printf "Generate Folder for this job. Please provide Company name \nCompany name: "
-read companyName
-
 printf "Please provide a folder name for this job. \nThe folder must have different name than the company name \n
 Folder name to save at: "
 
 read folder
 
-cover $companyName $folder
+cover $folder
 
 companyName="${companyName// /_}"
 
