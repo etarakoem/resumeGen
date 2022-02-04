@@ -44,5 +44,6 @@ namePDF=coverLetter_$companyName.pdf
 .files/pdf $fileName $namePDF
  
 rm $fileName
+mv $namePDF SingleCover
 
-echo "Making Cover Letter for $companyName: $namePDF"
+echo "Making Cover Letter for $companyName: $namePDF. Retrieve file in SingleCover"
