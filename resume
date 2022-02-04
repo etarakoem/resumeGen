@@ -292,9 +292,13 @@ EOF
 namePDF=$companyName.pdf
 .files/pdf $outfile $namePDF
 
-mv $namePDF SingleResume
-echo "File successfully save as $namePDF in SingleResume folder"
+if [ "$#" -eq 0 ]; then
+    mv $namePDF SingleResume
+    echo "File successfully save as $namePDF in SingleResume folder"
+else
+    mv $namePDF $1
+    echo "File successfully save as $namePDF in $1 folder"
+fi
 
-# cleaning
 rm $outfile
 rm rec
