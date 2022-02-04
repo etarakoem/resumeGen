@@ -22,7 +22,7 @@ companyName="${companyName// /_}"
 
 fileName=coverLetter_$companyName.html
 
-htmlFormat $fileName
+.files/htmlFormat $fileName
 
 printf "<p><strong>Job Number: </strong> $jobNum</p>" >> $fileName
 printf "<p><strong>Availability: </strong> 4 months (May-August 2021)</p>" >> $fileName
