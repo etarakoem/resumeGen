@@ -19,11 +19,56 @@ printf "Please provide a folder name for this job. \nThe folder must have differ
 Folder name to save at: "
 
 read folder
+mkdir $folder
 
-cover $folder
+# Get Job number
+printf "Job Number: "
+read jobNum
 
+# Get Company name
+
+printf "Please provide Company name \nCompany name: "
+read companyName
+
+# Get date today
+day=`date "+%B %d, %Y"`
+
+# Get company's goal
+printf "Company's Goal: "
+read companyGoal
+
+# Generate the file (You should make the file name as the name of the company you're applying)
+
+NameSet=$companyName
 companyName="${companyName// /_}"
 
+fileName=coverLetter_$companyName.html
+
+.files/htmlFormat $fileName
+
+printf "<p><strong>Job Number: </strong> $jobNum</p>" >> $fileName
+printf "<p><strong>Availability: </strong> 4 months (May-August 2021)</p>" >> $fileName
+printf "<p>$day</p>" >> $fileName
+printf "<p>Dear Hiring Manager</p>" >> $fileName
+printf "<p>It is my great pleasure to apply for the Computer Science Co-op role with $NameSet as posted internally by the Ryerson Co-op Office. As a 2nd-year Computer Science Co-op student at Ryerson University who is passionate about analyzing problems, learning and analyzing malware for cybersecurity issues, this opportunity caught my attention. With my proven academic excellence and certificate, I am confident that my familiarity with Cybersecurity, Web server networking, Penetration testing knowledge would qualify me as a competitive candidate for this position.</p>" >> $fileName
+
+printf "<p>$NameSet$companyGoal aligns with my passion for computer security. Directly related to the requirements of this role, my main studies focus deeply on ethical hacking and prepared me well to do penetration testing. To prove this matter, I spent 1 year and a half years self-studying and preparing for the OSCP (Offensive Security Certified Professional) certificate, which focuses heavily on penetration testing and writing reports. During this time, I managed to analyze and hack into a phishing website, which then exposed the list of victims who fell into this trap to provide their login credentials. I retrieved 3500 victims' login credentials and made a short video clip out of it to raise awareness for the community, which reached up to 1200 viewers. As a Co-op student, I would love to contribute my understanding and skill in terms of protecting clients and implementing safety measures to fight against data breaches and system severity.</p>" >> $fileName
+printf "<p>Thank you for your time and consideration. With the details listed above that I can bring to $NameSet, I have the commitment and a strong passion for security to succeed as a Co-op student. I would appreciate the chance to meet with you to speak more about this opportunity. 
+Sincerely,</p>
+" >> $fileName
+
+printf "<p>Phuc Hua</p>\n
+</body> 
+</html>" >> $fileName
+
+namePDF=coverLetter_$companyName.pdf
+
+.files/pdf $fileName $namePDF
+
+mv $namePDF $folder
+
+rm $fileName
+ 
 printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D\n"
 
 input=$(cat)
@@ -299,12 +344,12 @@ EOF
 
 # Main Program
 
-namePDF=$companyName.pdf
-.files/pdf $outfile $namePDF
+resumePDF=$companyName.pdf
+.files/pdf $outfile $resumePDF
 
-mv $namePDF $folder
+mv $resumePDF $folder
 
-echo "File successfully save as $namePDF in $folder"
+echo "File successfully save as $resumePDF in $folder"
 
 # cleaning
 rm $outfile
