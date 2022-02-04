@@ -292,7 +292,8 @@ EOF
 namePDF=$companyName.pdf
 .files/pdf $outfile $namePDF
 
-echo "File successfully save as $namePDF in $folder"
+mv $namePDF SingleResume
+echo "File successfully save as $namePDF in SingleResume folder"
 
 # cleaning
 rm $outfile
