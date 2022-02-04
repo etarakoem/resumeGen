@@ -2,8 +2,7 @@
 
 if [[ "$#" -gt 0 ]]
 then
-    printf "Usage: $0 \nThis script does not require any argument "
-    exit 1
+    printf "Generating scripting cover Letter "
 fi
 
 # Keywords store in .files folder:

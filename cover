@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ "$#" -gt 0 ]]
+then
+    printf "Generating scripting cover Letter "
+fi
+
 # Get Job number
 printf "Job Number: "
 read jobNum

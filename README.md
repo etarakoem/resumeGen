@@ -47,6 +47,13 @@ The list of single Cover Letter can be found in SingleCover folder
   ./kwCheck
 ```
 
+* Generating Alternative cover letter:
+```
+  ./package <number>
+  ./cover <number>
+```
+the default is 1 for Scripting Job requirement, and none for Cyber security related.
+
 ## Authors
 
 Contributors by Samuel
