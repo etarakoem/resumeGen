@@ -53,7 +53,7 @@ printf "<p>Phuc Hua</p>\n
 </body> 
 </html>" >> $fileName
 
-namePDF=coverLetter_$companyName.pdf
+namePDF="Phuc-Hua CoverLetter".pdf
 
 .files/pdf $fileName $namePDF
  

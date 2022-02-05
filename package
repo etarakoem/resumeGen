@@ -69,7 +69,7 @@ printf "<p>Phuc Hua</p>\n
 </body> 
 </html>" >> $fileName
 
-namePDF=coverLetter_$companyName.pdf
+namePDF="Phuc-Hua CoverLetter".pdf
 
 .files/pdf $fileName $namePDF
 
@@ -352,7 +352,7 @@ EOF
 
 # Main Program
 
-resumePDF=$companyName.pdf
+resumePDF="Phuc-Hua Resume".pdf
 .files/pdf $outfile $resumePDF
 
 mv $resumePDF $folder

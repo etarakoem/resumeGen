@@ -289,7 +289,7 @@ EOF
 
 # Main Program
 
-namePDF=$companyName.pdf
+namePDF="Phuc-Hua Resume".pdf
 .files/pdf $outfile $namePDF
 
 if [ "$#" -eq 0 ]; then
