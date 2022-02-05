@@ -1,0 +1,26 @@
+#!/bin/bash
+
+printf "Submit 'Test Long' for Company name and Testing for folder for easier cleaning process\n
+For cover testing, leave all blank\n
+
+=========================\n
+Running package checking\n
+=========================\n"
+package
+
+printf "\n=========================
+\nRunning resume checking\n
+=========================\n"
+resume
+
+printf "=========================\n
+\nRunning cover checking\n
+=========================\n"
+cover
+
+printf "\n=========================
+\nRunning kwcheck checking\n
+=========================\n"
+kwCheck
+
+cleaning
