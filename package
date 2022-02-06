@@ -71,9 +71,9 @@ printf "<p>Phuc Hua</p>\n
 
 if test -z "$jobNum"
 then
-    namePDF="Phuc-Hua_Resume".pdf
+    namePDF="Phuc-Hua_CoverLetter".pdf
 else  
-    namePDF="Phuc-Hua_$jobNum_CoverLetter".pdf
+    namePDF=Phuc-Hua_$jobNum"_CoverLetter.pdf"
 fi
 
 .files/pdf $fileName $namePDF
@@ -81,7 +81,9 @@ fi
 mv $namePDF $folder
 
 rm $fileName
- 
+
+printf "\nSuccessfully created $namePDF in $folder\n"
+
 printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D\n"
 
 input=$(cat)
@@ -360,7 +362,7 @@ if test -z "$jobNum"
 then
     resumePDF="Phuc-Hua_Resume".pdf
 else
-    resumePDF="Phuc-Hua_Resume_$jobNum".pdf
+    resumePDF=Phuc-Hua_$jobNum"_Resume.pdf"
 fi
 .files/pdf $outfile $resumePDF
 
