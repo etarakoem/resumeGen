@@ -1,5 +1,2 @@
 #!/bin/bash
 rm -R Testing
-rm coverLetter_*
-rm Test.pdf
-rm rec

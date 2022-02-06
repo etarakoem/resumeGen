@@ -1,8 +1,16 @@
 #!/bin/bash
 
-printf "Submit 'Test Long' for Company name and Testing for folder for easier cleaning process\n
-For cover testing, leave all blank\n
+function trap_ctrlc () 
+{  
+  printf "\nCleaning up...."
+  cleaning 2>/dev/null
+  exit 2
+}
 
+trap "trap_ctrlc" 2
+
+printf "Submit 'Test' for Company name and Testing for folder for easier cleaning process\n
+For cover testing, leave all blank\n
 =========================\n
 Running package checking\n
 =========================\n"

@@ -360,7 +360,7 @@ if test -z "$jobNum"
 then
     resumePDF="Phuc-Hua_Resume".pdf
 else
-    resumePDF="Phuc-Hua_Resume_$jobnum".pdf
+    resumePDF="Phuc-Hua_Resume_$jobNum".pdf
 fi
 .files/pdf $outfile $resumePDF
 

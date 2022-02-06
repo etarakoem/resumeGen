@@ -9,7 +9,7 @@ web=".files/webKey"
 security=".files/secKey"
 dev=".files/devKey"
 
-printf"Please provide the Job Number \nJob number: "
+printf "Please provide the Job Number \nJob number: "
 read jobNum
 
 printf "Please provide Company name \nCompany name: "
