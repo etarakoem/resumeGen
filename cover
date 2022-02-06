@@ -63,5 +63,10 @@ fi
 .files/pdf $fileName $namePDF
  
 rm $fileName  
-mv $namePDF SingleCover
-echo "Making Cover Letter for $NameSet: $namePDF. Retrieve file in SingleCover"
+
+if [ "$#" -eq 0 ]; then
+    echo "File successfully save as $namePDF"
+else
+    mv $namePDF $1
+    echo "File successfully save as $namePDF in $1 folder"
+fi
