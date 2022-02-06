@@ -69,7 +69,12 @@ printf "<p>Phuc Hua</p>\n
 </body> 
 </html>" >> $fileName
 
-namePDF="Phuc-Hua_CoverLetter".pdf
+if test -z "$jobNum"
+then
+    namePDF="Phuc-Hua_Resume".pdf
+else  
+    namePDF="Phuc-Hua_CoverLetter_$jobnum".pdf
+fi
 
 .files/pdf $fileName $namePDF
 
@@ -351,8 +356,12 @@ EOF
 
 
 # Main Program
-
-resumePDF="Phuc-Hua_Resume".pdf
+if test -z "$jobNum"
+then
+    resumePDF="Phuc-Hua_Resume".pdf
+else
+    resumePDF="Phuc-Hua_Resume_$jobnum".pdf
+fi
 .files/pdf $outfile $resumePDF
 
 mv $resumePDF $folder

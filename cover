@@ -53,7 +53,12 @@ printf "<p>Phuc Hua</p>\n
 </body> 
 </html>" >> $fileName
 
-namePDF="Phuc-Hua_CoverLetter".pdf
+if test -z "$jobNum"
+then
+    namePDF="Phuc-Hua_Resume".pdf
+else
+    namePDF="Phuc-Hua_CoverLetter_$jobnum".pdf
+fi
 
 .files/pdf $fileName $namePDF
  

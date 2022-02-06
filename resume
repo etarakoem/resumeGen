@@ -9,6 +9,8 @@ web=".files/webKey"
 security=".files/secKey"
 dev=".files/devKey"
 
+printf"Please provide the Job Number \nJob number: "
+read jobNum
 
 printf "Please provide Company name \nCompany name: "
 read companyName
@@ -288,9 +290,15 @@ EOF
 
 
 # Main Program
+if test -z "$jobNum"
+then
+    namePDF="Phuc-Hua_Resume".pdf
+else
+    namePDF="Phuc-Hua_Resume_$jobNum".pdf
+fi
 
-namePDF="Phuc-Hua_Resume".pdf
 .files/pdf $outfile $namePDF
+
 
 if [ "$#" -eq 0 ]; then
     mv $namePDF SingleResume
