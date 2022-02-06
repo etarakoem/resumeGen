@@ -294,7 +294,7 @@ if test -z "$jobNum"
 then
     namePDF="Phuc-Hua_Resume".pdf
 else
-    namePDF="Phuc-Hua_Resume_$jobNum".pdf
+    namePDF="Phuc-Hua_$jobNum_Resume".pdf
 fi
 
 .files/pdf $outfile $namePDF

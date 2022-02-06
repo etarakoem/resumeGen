@@ -1,6 +1,10 @@
 #!/bin/bash
 
-if [[ "$#" -gt 0 ]]
+if [[ "$#" -lt 1 ]]
+then
+  echo "Usage: $0 [cover Letter type 0 1]"
+  exit 1
+elif [[ "$1" -eq "1" ]]
 then
     printf "Generating scripting cover Letter\n "
 fi
@@ -57,16 +61,18 @@ if test -z "$jobNum"
 then
     namePDF="Phuc-Hua_Resume".pdf
 else
-    namePDF="Phuc-Hua_CoverLetter_$jobnum".pdf
+    namePDF="Phuc-Hua_$jobNum_CoverLetter".pdf
 fi
 
 .files/pdf $fileName $namePDF
  
 rm $fileName  
 
-if [ "$#" -eq 0 ]; then
-    echo "File successfully save as $namePDF"
-else
-    mv $namePDF $1
-    echo "File successfully save as $namePDF in $1 folder"
+if [[ "$#" -gt 1 ]]; 
+then
+  mv $namePDF $2
+  echo "File successfully save as $namePDF in $2"
+  exit 1
 fi
+
+echo "File successfully save as $namePDF"

@@ -73,7 +73,7 @@ if test -z "$jobNum"
 then
     namePDF="Phuc-Hua_Resume".pdf
 else  
-    namePDF="Phuc-Hua_CoverLetter_$jobNum".pdf
+    namePDF="Phuc-Hua_$jobNum_CoverLetter".pdf
 fi
 
 .files/pdf $fileName $namePDF
