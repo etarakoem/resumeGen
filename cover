@@ -59,7 +59,7 @@ printf "<p>Phuc Hua</p>\n
 
 if test -z "$jobNum"
 then
-    namePDF="Phuc-Hua_Resume".pdf
+    namePDF="Phuc-Hua_CoverLetter".pdf
 else
     namePDF=Phuc-Hua_$jobNum"_CoverLetter.pdf"
 fi
