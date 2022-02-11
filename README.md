@@ -6,11 +6,15 @@
             /_/   \___/____/\__,_/_/ /_/ /_/\___/\____/\___/_/ /_/ 
                                                                    
 
-Generate my own Resume and Cover Letter using Bash Scripting and Unix commands.
+Generate my own Resume and Cover Letter using Bash Scripting and Unix commands. For computer science related job posting only. 
+
+More general job posting resume generating script in the future.
 
 ### Dependencies
 
 * macOS with bash and zsh
+* Google chrome installed
+
 
 ### Installing
 
