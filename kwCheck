@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cat .files/banner
 # Check if certain kw found in Job Posting
 printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D\n"
 
