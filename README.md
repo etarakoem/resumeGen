@@ -10,11 +10,17 @@ Generate my own Resume and Cover Letter using Bash Scripting and Unix commands. 
 
 More general job posting resume generating script in the future.
 
-### Dependencies
+## Requirement:
 
-* macOS with bash and zsh
-* Google chrome installed
+* This script works with macOS and Linux
+* [Headless Chrome convert html to pdf](https://developers.google.com/web/updates/2017/04/headless-chrome) or if you already have google Chrome installed on your Mac
 
+* Some set up, including setting your own Resume format, with names, contact number, keywords for job you're looking for, the work experience files. If you want to edit these keywords file,
+```
+  cd .files
+  ls
+```
+Adding function and modifiers will be update in the future
 
 ### Installing
 
