@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cat .files/banner
 if [[ "$#" -lt 1 ]]
 then
   echo "Usage: $0 [cover Letter type 0 1]"

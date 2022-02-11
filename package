@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cat .files/banner
+
 if [[ "$#" -gt 0 ]]
 then
     printf "Generating scripting cover Letter \n"
