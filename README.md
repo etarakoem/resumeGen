@@ -8,7 +8,9 @@
 
 Generate my own Resume and Cover Letter using Bash Scripting and Unix commands. For computer science related job posting only. 
 
-More general job posting resume generating script in the future.
+## Update:
+-- Version 2.0 (Feb 11, 2022) --
+Greate news! ResumeGen is now open for public use, with customizable resume and you can craft your own set of Keywords!
 
 ## Requirement:
 
@@ -54,17 +56,32 @@ Copy these steps for installing into your terminal. Run this script using termin
 ```
   menu
 ```
-
 * Editing your Contact info in menu 1:
-```
-  menu
-```
+Go for option 1 in menu to set your name, address and email
+![menu 1](https://user-images.githubusercontent.com/50989367/153696046-00050605-772a-4df6-933c-175b525aa589.png)
 
-Then follow the prompt to set up your name, address, email
+* Making a new set of experience with menu 2:
+![menu 2](https://user-images.githubusercontent.com/50989367/153696000-6563301d-a280-4912-8818-8cc04d526258.png)
 
-```
-  setname
-```	
+* Adding to your existing experience list with menu 3:
+![menu 3](https://user-images.githubusercontent.com/50989367/153696088-cfd22b57-da4d-4362-af67-3fd1f3f86fc5.png)
+
+* Customize your 1 sentence Profile Summary with menu 4:
+![menu 4](https://user-images.githubusercontent.com/50989367/153696119-6136980f-ab2f-489c-8415-6b99b6ca949f.png)
+
+* Adding to your existing Qualification Summary List for scanning keywords with menu 5:
+![menu 5](https://user-images.githubusercontent.com/50989367/153696415-d449b566-ca5a-4ca2-97c0-d48b2868959f.png)
+
+* Adding your Education history with menu 6:
+![menu 6](https://user-images.githubusercontent.com/50989367/153696469-7e1fff30-c544-4457-827e-f3c9a783d8e6.png)
+
+* Setting up your own Keyword list with menu 7:
+![menu 7](https://user-images.githubusercontent.com/50989367/153696693-4fce563e-4e17-411a-a7e4-92c2dbab5792.png)
+![menu 7 1](https://user-images.githubusercontent.com/50989367/153696765-9f6b6f81-30f3-45cd-90bd-c78eba6dd124.png)
+
+You can even remove your existing keywords with this follow up options:
+![menu 7 remove](https://user-images.githubusercontent.com/50989367/153696725-55d7a545-8422-4aef-b0db-4fdd612a66a4.png)
+
 #### For recruiters to see how Phuc Hua's resume and cover letter been created
 * Get the Job posting you want ready, then copy them into the clipboard
 To get a full package (resume + cover letter):
