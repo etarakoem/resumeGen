@@ -56,6 +56,8 @@ Copy these steps for installing into your terminal. Run this script using termin
 ```
   menu
 ```
+![Screen Shot 2022-02-12 at 12 20 01 AM](https://user-images.githubusercontent.com/50989367/153697928-84fbe916-574d-4cf1-8f36-6c717891a99b.png)
+
 * Editing your Contact info in menu 1:
 Go for option 1 in menu to set your name, address and email
 
