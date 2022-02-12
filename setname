@@ -1,0 +1,109 @@
+#!/bin/bash
+cat .files/banner
+touch .files/profile
+fileName=.files/profile
+
+printf "What's your name? This would be the name on your Resume\n"
+read -r -p "My name is: " myName
+echo "$myName" > profilename
+read -r -p "Phone number: " myPhone
+
+read -r -p "City: " myCity
+
+read -r -p "Province: " myProvince
+
+read -r -p "Email: " myEmail
+
+read -r -p "Including Linkedin link? [y/n] " response
+linkedin=""
+case "$response" in
+    [yY])
+	read -r -p "Linkedin link url: " linkedin
+	;;
+    *)
+	linkedin=""
+	;;
+esac
+
+cat<<"EOF"> $fileName
+<!Doctype html>
+<html>
+  <style>
+    h1 {
+        text-align: center;
+        font-size: 40px;
+        font-family: Arial;
+        background-color: #FFF;
+    }
+
+    h2 {
+        text-align: left;
+        font-size: 25px;
+        font-family: Arial;
+        background-color: #fff; 
+        margin-bottom: 0px;
+    }
+
+    p {
+        font-size: 15px;
+        font-family: Arial;
+        margin-top: 5px;
+    }
+
+    ul {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        background-color: #fff;
+        padding-left: 10%;
+        padding-right: 10%;
+        font-family: Arial;
+    }
+    .column {
+        float: left;
+        background-color: #fff;
+        margin-bottom: 5px;
+        margin-top: 0px;
+    }
+    .right {
+        width: 30%;
+        text-indent: 5%;
+    }
+    .left {
+        width: 70%;
+        text-indent: 5%;
+    }
+    .white {
+        padding-top: 0%;
+        background-color: white;
+    }
+    .blue {
+        color: blue;
+        text-decoration: underline;
+    }
+</style>
+  
+  <body>
+EOF
+
+printf '<h1 style="margin-bottom:0;">' >> $fileName
+printf "$myName</h1>\n" >> $fileName
+printf '   <p style="text-align: center; margin: 0; padding-top : 0;">' >> $fileName
+printf "$myCity , $myProvince | $myPhone | ">>$fileName
+printf '<span class="blue">' >> $fileName
+printf "$myEmail</span> " >> $fileName
+case "$response" in
+	[yY])
+		printf '| <span class="blue">' >> $fileName
+		printf "$linkedin</span></p>" >> $fileName
+	    ;;
+	*)
+	    printf "\n</p>\n" >> $fileName
+	    ;;
+esac
+
+#=====================================
+
+echo "Run Menu if you need anything else. Run .resumegen to generate a resume"
+echo "Exit ..."
+
+

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+cat .files/banner
+touch .files/exper
+fileName=.files/exper
+
+read -r -p "How many experience would you like to add: " number
+
+printf "\nAdding $number new: \n"
+
+for i in `seq 1 $number`;
+do
+    read -r -p "Name of activity: " name
+    read -r -p "Date: " day
+#    read -r -p "How many bullet points do you have for this experience? " no
+
+    echo '<div class="column left">' >> $fileName
+    echo "<p><strong>$name</strong></p></div>" >> $fileName
+    echo '<div class="column right">' >> $fileName
+    echo "<p>$day</p></div><ul>" >> $fileName
+
+    flag=false
+    printf "Entering your experience, once done type 'done'\n"
+    while ! $flag; do
+	read content
+	if [[ "$content" == "done" ]]; then
+	    flag=true
+	    break
+	fi
+	echo "<li>$content</li>" >> $fileName
+    done
+    echo "</ul>" >> $fileName
+done

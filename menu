@@ -1,0 +1,65 @@
+#!/bin/bash
+
+cat .files/banner
+touch exper
+fileName=exper
+
+printf "\nWould you like to renew your experience or add to the existing list?
+\n\n 1) Setting contacts information
+\n\n 2) Renew experience (Caution, this will overwrite your existing experience!)
+\n\n 3) Adding to exisitng experience list  
+\n\n 4) Customizing Profile Summary 
+\n\n 5) Editing Qualification Summary list
+\n\n 6) Setting Education
+\n\n 7) Adding keywords list
+\n"
+read -r -p "Choose 1,2,3,4,5,6,7 or q to quit: " choice
+
+case "$choice" in
+    2)
+	echo "Rewriting existing experience file..."
+	echo "" > $fileName
+	experience
+	exit 1
+	;;
+    3)
+	echo "Adding experience"
+	experience
+	exit 1
+	;;
+    4)
+	read -r -p "Type your profile summary in one line: " pfsum
+	echo "$pfsum" > .files/profileSummary
+	exit 1
+	;;
+    1)
+	setname
+	exit 1
+	;;
+    5)
+	flag=false
+	while ! $flag; do
+        printf "Adding to your Qualification Summary list. Once done type 'done'\n"
+        read content
+        if [[ "$content" == "done" ]]; then
+            flag=true
+            break
+        fi
+        echo "$content" >> .files/qualification
+	done
+	exit 1
+	;;
+    6)
+	edugen 
+	exit 1
+	;;
+    7)
+	keys
+	exit 1
+	;;
+    q)
+	exit 1
+	;;
+esac
+
+echo "Finishing task, run .menu again to set up your resume"

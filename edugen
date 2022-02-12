@@ -1,0 +1,32 @@
+#!/bin/bash
+
+fileName=.files/eduPart
+
+printf '<h2>Education</h2>\n
+<hr size="2">                                                                             
+       <div class="column left white">                                                          
+<p>' >> $fileName
+
+read -r -p "Education title: " edu
+
+printf "$edu</p> </div>                                                                                          
+    \n<div class=\"column right\">                                                                      
+      <p>" >> $fileName
+read -r -p "From when to when: " time
+printf "$time</p></div>                                                                                          
+    \n<div class=\"column left white\">" >> $fileName
+
+read -r -p "Have you graduated yet? [y/n] " choice
+
+if [[ "$choice" == "n" || "$choice" == "N" ]]
+then
+    read -r -p "When will you expected to graduate? "
+    printf "<p>Expected graduation: June 2024 </p>" >> $fileName
+fi
+
+read -r -p "Culimative GPA? (CGPA): " gpa
+
+printf "
+      <p>CGPA: $gpa</p>                                                                          </div>                                                                                          
+\n</body>                                                                                         
+\n</html>  ">> $fileName

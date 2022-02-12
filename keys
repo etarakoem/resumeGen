@@ -1,0 +1,70 @@
+#!/bin/bash
+
+cat .files/banner
+
+removeFile () {
+    ls .files/jobkeywords
+    read -r -p "Name a file to delete: " name
+    
+    read -r -p "Are you sure you want to delete $name? [y/n] " choice
+    case "$choice" in
+	[yY])
+	    rm $name 2>/dev/null
+	    echo "Successfully remove $name"
+	    ;;
+	[nN])
+	    removeFile
+	    ;;
+	*)
+	    printf "\nType './keys' to run this program again if you need anything\n"
+	    echo "Exiting ..."
+	    exit 1
+	    ;;
+    esac
+}
+
+# cat .files/banner
+jobkw () {
+    printf "Prepare your list of keywords\n"
+    read -r -p "What's the name of this job field? (1 word, don't add space): " jobkey
+    touch $jobkey
+    
+    printf "Type your keywords, seperate by space and press 'enter' once done\n"
+    
+    read keywords
+    echo "$keywords" >> $jobkey
+    #[[ $? = 0 ]] && \
+#	printf "\nFinishing setting up your keywords for searching"
+    read -p "Finish? [y/n]" choice
+    while [[ "$choice" == "n" || "$choice" == "N" ]]
+    do
+	read -p "Adding keywords: " keywords
+	echo "$keywords" >> $jobkey
+	read -r -p "Finish? [y/n]" choice
+    done
+    echo "Finishing ... "
+    mv $jobkey .files/jobkeywords
+}
+
+main () {
+    printf "Greetings, choose an option for your keywords setup: 
+    \n\t1) Make new job keywords
+    \n\t2) Remove existing job keywords \n
+    \tq) Quit\n\n"
+    read -r -p "Choose an option, press 1, 2, or q to quit: " response
+
+    case "$response" in 
+	1)
+	    jobkw
+	    ;;
+	2)
+	    removeFile
+	    ;;
+	q)
+	    echo "Quitting... "
+	    exit 1
+	    ;;
+    esac
+}
+
+main
