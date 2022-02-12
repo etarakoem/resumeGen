@@ -45,7 +45,7 @@ Copy these steps for installing into your terminal. Run this script using termin
   export PATH=$PATH:$(pwd)
 ```
 
-#### For Public use:
+### For Public use:
 
 * To check for keywords scanned from job posting
 ```
@@ -91,7 +91,39 @@ You can even remove your existing keywords with this follow up options:
 
 ![menu 7 remove](https://user-images.githubusercontent.com/50989367/153696725-55d7a545-8422-4aef-b0db-4fdd612a66a4.png)
 
-#### For recruiters to see how Phuc Hua's resume and cover letter been created
+* Making your own Resume base on any job posting by this built-in scanning:
+
+```
+  reumegen
+```
+Gather your keyword ready. The more you have, the better classifies, and be sure to fill tons of qualification summary in your file so they can alter and select corresponding job!
+
+![Screen Shot 2022-02-11 at 11 55 06 PM](https://user-images.githubusercontent.com/50989367/153697278-f327b2fb-0ea6-4785-afd4-14209fc84701.png)
+
+Then paste the job posting directly to the screen.
+
+![Screen Shot 2022-02-11 at 11 56 05 PM](https://user-images.githubusercontent.com/50989367/153697298-2d6d662a-f3b8-454c-b63c-bcaf220fbb36.png)
+
+Remember, press 'Enter' before pressing Ctrl + D to continue
+
+![Screen Shot 2022-02-11 at 11 56 51 PM](https://user-images.githubusercontent.com/50989367/153697318-4987ff8d-3e66-41a6-983c-8063ab3e1048.png)
+
+An analyze screen will show up to show how many keywords match with your own keywords, determine the type of job
+
+![Screen Shot 2022-02-12 at 12 05 51 AM](https://user-images.githubusercontent.com/50989367/153697566-905a5edc-d1fd-4c48-9177-13f85cad7de9.png)
+
+Then you'll be prompt to choose how to edit your resume.
+Choose both if your resume content is short, choose only qualification summary if you have many.
+
+![Screen Shot 2022-02-12 at 12 06 39 AM](https://user-images.githubusercontent.com/50989367/153697584-e5be2e7a-24d1-4bea-b2f5-27385b7c331b.png)
+
+### Sample result:
+
+Following the steps above, and a sample job posting would result in this resume in pdf: 
+![Screen Shot 2022-02-12 at 12 12 18 AM](https://user-images.githubusercontent.com/50989367/153697730-911ae970-7b93-4884-b705-e9fa4330ba92.png)
+
+
+### For recruiters to see how Phuc Hua's resume and cover letter been created
 * Get the Job posting you want ready, then copy them into the clipboard
 To get a full package (resume + cover letter):
 
@@ -105,6 +137,8 @@ When is asked for the Company requirement, remember to Enter and press Ctrl + D 
 ```
   resume
 ```
+Remember to have your keywords file ready first
+
 The list of single Resume can be found in SingleResume folder
 
 * To generate only the cover Letter:
