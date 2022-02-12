@@ -106,8 +106,6 @@ Then paste the job posting directly to the screen.
 
 Remember, press 'Enter' before pressing Ctrl + D to continue
 
-![Screen Shot 2022-02-11 at 11 56 51 PM](https://user-images.githubusercontent.com/50989367/153697318-4987ff8d-3e66-41a6-983c-8063ab3e1048.png)
-
 An analyze screen will show up to show how many keywords match with your own keywords, determine the type of job
 
 ![Screen Shot 2022-02-12 at 12 05 51 AM](https://user-images.githubusercontent.com/50989367/153697566-905a5edc-d1fd-4c48-9177-13f85cad7de9.png)
