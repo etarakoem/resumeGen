@@ -120,8 +120,12 @@ Choose both if your resume content is short, choose only qualification summary i
 ### Sample result:
 
 Following the steps above, and a sample job posting would result in this resume in pdf: 
+
+For option 2 in resumegen: only Qualification Summary
 ![Screen Shot 2022-02-12 at 12 12 18 AM](https://user-images.githubusercontent.com/50989367/153697730-911ae970-7b93-4884-b705-e9fa4330ba92.png)
 
+For option 3 in resumegen: both Qualification Summary and Profile Summary:
+![Screen Shot 2022-02-12 at 12 21 10 AM](https://user-images.githubusercontent.com/50989367/153697963-f657cce6-e860-40a1-9add-9a45524edc44.png)
 
 ### For recruiters to see how Phuc Hua's resume and cover letter been created
 * Get the Job posting you want ready, then copy them into the clipboard
