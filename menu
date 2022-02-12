@@ -2,7 +2,7 @@
 
 cat .files/banner
 touch exper
-fileName=exper
+fileName=.files/exper
 
 printf "\nWould you like to renew your experience or add to the existing list?
 \n\n 1) Setting contacts information
@@ -38,8 +38,8 @@ case "$choice" in
 	;;
     5)
 	flag=false
+	printf "Adding to your Qualification Summary list. Once done type 'done'\n"
 	while ! $flag; do
-        printf "Adding to your Qualification Summary list. Once done type 'done'\n"
         read content
         if [[ "$content" == "done" ]]; then
             flag=true

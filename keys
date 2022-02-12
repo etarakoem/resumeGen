@@ -28,19 +28,16 @@ jobkw () {
     printf "Prepare your list of keywords\n"
     read -r -p "What's the name of this job field? (1 word, don't add space): " jobkey
     touch $jobkey
-    
-    printf "Type your keywords, seperate by space and press 'enter' once done\n"
-    
-    read keywords
-    echo "$keywords" >> $jobkey
-    #[[ $? = 0 ]] && \
-#	printf "\nFinishing setting up your keywords for searching"
-    read -p "Finish? [y/n]" choice
-    while [[ "$choice" == "n" || "$choice" == "N" ]]
-    do
-	read -p "Adding keywords: " keywords
-	echo "$keywords" >> $jobkey
-	read -r -p "Finish? [y/n]" choice
+
+    flag=false
+    printf "Adding keywords. Once you done, enter 'done' \n"
+    while ! $flag; do
+        read content
+        if [[ "$content" == "done" ]]; then
+            flag=true
+            break
+        fi
+        printf "$content " >> $jobkey
     done
     echo "Finishing ... "
     mv $jobkey .files/jobkeywords
@@ -56,9 +53,11 @@ main () {
     case "$response" in 
 	1)
 	    jobkw
+	    exit 1
 	    ;;
 	2)
 	    removeFile
+	    exit 1
 	    ;;
 	q)
 	    echo "Quitting... "

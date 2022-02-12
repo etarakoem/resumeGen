@@ -1,9 +1,9 @@
 #!/bin/bash
 
 fileName=.files/eduPart
+echo "" > .files/edupart
 
 printf '<h2>Education</h2>\n
-<hr size="2">                                                                             
        <div class="column left white">                                                          
 <p>' >> $fileName
 
