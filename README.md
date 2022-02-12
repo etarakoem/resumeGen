@@ -58,33 +58,8 @@ Copy these steps for installing into your terminal. Run this script using termin
 * Editing your Contact info in menu 1:
 ```
   menu
-  
-  Would you like to renew your experience or add to the existing list?
-
-
- 1) Setting contacts information
-
-
- 2) Renew experience (Caution, this will overwrite your existing experience!)
-
-
- 3) Adding to exisitng experience list  
-
-
- 4) Customizing Profile Summary 
-
-
- 5) Editing Qualification Summary list
-
-
- 6) Setting Education
-
-
- 7) Adding keywords list
-
-Choose 1,2,3,4,5,6,7 or q to quit: 1
-
 ```
+
 Then follow the prompt to set up your name, address, email
 
 ```
