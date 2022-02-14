@@ -2,6 +2,8 @@
 
 cat .files/banner
 
+[[ ! -d ".files/jobkeywords" ]] && mkdir .files/jobkeywords
+
 removeFile () {
     ls .files/jobkeywords
     read -r -p "Name a file to delete: " name
@@ -37,7 +39,7 @@ jobkw () {
             flag=true
             break
         fi
-        printf "$content " >> $jobkey
+        [[ ! -z "$content" ]] && printf "$content " >> $jobkey
     done
     echo "Finishing ... "
     mv $jobkey .files/jobkeywords
@@ -65,5 +67,17 @@ main () {
 	    ;;
     esac
 }
+
+[[ "$#" -eq 1 ]] &&
+    case $1 in 
+	1)
+	    jobkw
+	    exit 1
+	    ;;
+	2)
+	    removeFile
+	    exit 1
+	    ;;
+    esac
 
 main

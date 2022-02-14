@@ -76,3 +76,4 @@ then
 fi
 
 echo "File successfully save as $namePDF"
+echo $jobNum
