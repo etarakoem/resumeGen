@@ -9,9 +9,11 @@ printf "\nWould you like to renew your experience or add to the existing list?
 \n\n 2) Renew experience (Caution, this will overwrite your existing experience!)
 \n\n 3) Adding to exisitng experience list  
 \n\n 4) Customizing Profile Summary 
-\n\n 5) Editing Qualification Summary list
-\n\n 6) Setting Education
-\n\n 7) Adding keywords list
+\n\n 5) Clearing Qualification Summary List
+\n\n 6) Editing Qualification Summary list
+\n\n 7) Setting Education
+\n\n 8) Adding keywords list
+\n\n 9) Reset whole profile (except keyword list)
 \n"
 read -r -p "Choose 1,2,3,4,5,6,7 or q to quit: " choice
 
@@ -36,7 +38,10 @@ case "$choice" in
 	setname
 	exit 1
 	;;
-    5)
+    5) echo "Clearing qualification Summary list ..."
+       exit 1
+       ;;
+    6)
 	flag=false
 	printf "Adding to your Qualification Summary list. Once done type 'done'\n"
 	while ! $flag; do
@@ -49,12 +54,22 @@ case "$choice" in
 	done
 	exit 1
 	;;
-    6)
+   
+    7)
 	edugen 
 	exit 1
 	;;
-    7)
+    8)
 	keys
+	exit 1
+	;;
+    9)
+	echo "Reset all profile info..."
+	echo "" > .files/profileSummary
+	echo "" > .files/exper
+	echo "" > .files/eduPart
+	echo "" > .files/qualification
+	echo "" > .files/profile
 	exit 1
 	;;
     q)

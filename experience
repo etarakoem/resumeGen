@@ -27,7 +27,7 @@ do
 	    flag=true
 	    break
 	fi
-	echo "<li>$content</li>" >> $fileName
+	[[ ! -z "$content" ]] && echo "<li>$content</li>" >> $fileName
     done
     echo "</ul>" >> $fileName
 done
