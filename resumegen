@@ -1,0 +1,160 @@
+#!/bin/bash
+cat .files/banner
+
+printf "\nPlease provide Company Requirement \nOnce       
+done, press Enter then Ctrl + D\n"
+
+cd .files/jobkeywords
+
+input=$(cat)
+
+touch rec
+
+echo $input > rec
+
+keyw () {
+
+    requirement=$1
+    counts=0
+    declare -a list=($(cat $2 | tr '\n' ' '))
+    
+    for item in ${list[@]}
+    do
+	if grep -q -i $item $requirement; then
+            ((counts++))
+	fi
+    done
+    return $counts
+}
+
+htmlList () {
+    line=$3
+    content=`sed "${line}q;d" $2`
+    echo "<li>$content</li>" >> $1
+}
+
+htmlQualiSum () {
+    local out=$1
+    local file=$2
+    shift 2
+                                                              
+    echo "<h2>Qualification Summary</h2>" >> $out
+    
+    echo "<ul>" >> $out
+    arr=("$@")
+    for i in "${arr[@]}"
+    do
+        htmlList $out $file $i
+    done
+    echo "</ul>" >> $out
+}
+
+profsum () {
+
+    echo "<h2>Profile Summary</h2>" >> $outfile
+    printf "\n<p>" >> $outfile
+    cat ".files/profileSummary" >> $outfile
+    printf "</p>\n" >> $outfile
+}
+
+
+printf "========Job Matches========\n"
+
+max=0
+title=""
+for i in *
+do
+    if [[ $i != "rec" ]] &&[[  $i != "README.md" ]]
+    then
+	keyw rec $i
+	count=$?
+	if [[ $count > $max ]]
+	then
+	    max=$count
+	    title=$i
+	fi
+	printf "$i mathces: $count\n"
+    fi
+done
+printf "===========================\n"
+
+if [[ $title == "" ]]
+then
+    printf "Job does not match database keywords\n Consider making more database by invoking 'keys'\n"
+    title="general"
+else	 
+    printf "This job suit $title best\n===========================\n"
+fi
+
+declare -a listquali
+
+requirement="../qualiSum"
+
+declare -a list=($(cat $title | tr '\n' ' '))
+    
+for item in ${list[@]}
+do
+    listquali+=(`grep -ni "$item" $requirement | cut -f1 -d:`)
+done
+
+sorted=($(echo "${listquali[@]}" | tr ' ' '\n' | sort -nu | tr '\n' ' '))
+
+for i in $(seq 1 5)
+do
+    if [[ ${#sorted[@]} -lt 6 ]] && [[ ! " ${sorted[*]}" =~ " $i " ]]
+    then
+        sorted+=($i)
+    fi
+done
+
+sorted=($(echo "${sorted[@]}" | tr ' ' '\n' | sort -nu | tr '\n' ' '))
+
+outfile=sampleResume.html
+
+cd ../../
+
+#HTML making process
+# Add profile
+cat .files/profile > $outfile
+
+
+# Making qualification
+source=".files/rec"
+qualify=".files/qualification"
+
+printf "Choosing Profile Summary, Qualification Summary or both?\n "
+printf "Choose an option: \n
+       1) Profile Summary\n
+       2) Qualification Summary\n
+       3) both\n\n"
+read -r -p "Your choice: " choice
+case "$choice" in
+    1)
+	profsum
+	;;
+    2)
+	htmlQualiSum $outfile $qualify ${sorted[@]}
+	;;
+    3)
+	profsum
+	htmlQualiSum $outfile $qualify ${sorted[@]}
+	;;
+    q)
+	exit 1
+	;;
+esac
+
+echo "<h2>Experience</h2>">> $outfile
+
+# Adding experience here
+cat .files/exper >> $outfile
+
+# Adding Education here
+cat .files/eduPart >> $outfile
+
+finalname=`cat profilename | tr ' ' '_'`
+
+.files/pdf $outfile $finalname.pdf
+rm sampleResume.html
+
+echo "Successfully create $finalname.pdf"
