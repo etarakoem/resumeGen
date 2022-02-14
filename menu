@@ -3,7 +3,7 @@
 cat .files/banner
 touch exper
 fileName=.files/exper
-
+if [[ "$#" -eq 0 ]]; then
 printf "\nWould you like to renew your experience or add to the existing list?
 \n\n 1) Setting contacts information
 \n\n 2) Renew experience (Caution, this will overwrite your existing experience!)
@@ -16,6 +16,9 @@ printf "\nWould you like to renew your experience or add to the existing list?
 \n\n 9) Reset whole profile (except keyword list)
 \n"
 read -r -p "Choose 1,2,3,4,5,6,7 or q to quit: " choice
+else
+    choice=$1
+fi
 
 case "$choice" in
     2)
