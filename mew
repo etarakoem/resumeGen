@@ -102,7 +102,7 @@ max=0
 title=""
 for i in *
 do
-    if [[ $i != "rec" ]] &&[[  $i != "README.md" ]]
+    if [[ $i != "rec" ]] && [[ $i != "temp" ]] && [[  $i != "README.md" ]]
     then
 	keyw rec $i
 	count=$?
