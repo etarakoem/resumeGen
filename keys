@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cat .files/banner
 
 [[ ! -d ".files/jobkeywords" ]] && mkdir .files/jobkeywords
 
