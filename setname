@@ -1,5 +1,5 @@
 #!/bin/bash
-cat .files/banner
+
 touch .files/profile
 fileName=.files/profile
 

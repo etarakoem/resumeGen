@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cat .files/banner
 touch .files/exper
 fileName=.files/exper
 

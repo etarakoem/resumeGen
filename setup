@@ -58,15 +58,16 @@ edugen
 printf "\n\n One last step, add the keywords for one of your job here. 
 \n Remember to add keywords that you have in your Qualification Summary to maximize the chance it matches with Job Postings
 \n You can add as many job keywords that you can apply in the future as long as your qualification Summary has the keywords.
-\n Keywords are also used to determine the type of job when you invoke 'kwcheck', so be sure to add more of them to determine!"
+\n Keywords are also used to determine the type of job when you invoke 'kwcheck', so be sure to add more of them to determine!\n\n"
 
 read -rp "How many set of keywords do you want to add? " number
 
-
+if [[ $number -gt 0 ]]; then
 for i in $(seq 1 $number)
 do
     jobkw
 done
+fi
 
 printf "\n Remember, all the menu can be accesses when typing 'menu' in your terminal.
 \n\n Thank you for using my script. Here's a cat."
