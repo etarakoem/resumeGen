@@ -56,7 +56,22 @@ fileName=coverLetter_$companyName.html
 .files/htmlFormat $fileName
 
 [[ ! -z "$jobNum" ]] && printf "<p><strong>Job Number: </strong> $jobNum</p>" >> $fileName
-printf "<p><strong>Availability: </strong> 4 months (May-August 2021)</p>" >> $fileName
+
+read -rp "Availability to 8 months? " choice
+
+message="4 months (May-September 2022)"
+
+case "$choice" in
+    8)
+	message="8 months (May 2022 -January 2023)"
+	;;
+    16)
+	message="16 months (May 2022 - September 2023)"
+	;;
+esac
+printf "<p><strong>Availability: </strong> $message </p>" >> $fileName
+
+
 printf "<p>$day</p>" >> $fileName
 printf "<p>Dear Hiring Manager</p>" >> $fileName
 
