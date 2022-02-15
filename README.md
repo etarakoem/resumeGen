@@ -39,6 +39,11 @@ Copy these steps for installing into your terminal. Run this script using termin
  ./update
 ```
 
+* Set up your profile by running
+```
+  ./setup
+```
+
 * Alternatively, you can simply updating the Path to ensure this tool runs without issues (Copy and paste to your terminal)
 ```
   cd resumeGen

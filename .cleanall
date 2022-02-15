@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "" > .files/profileSummary
+echo "" > .files/exper
+echo "" > .files/eduPart
+echo "" > .files/qualification
+echo "" > .files/profile
+echo "" > profilename
+

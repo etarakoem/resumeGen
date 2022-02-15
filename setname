@@ -103,7 +103,7 @@ esac
 
 #=====================================
 
-echo "Run Menu if you need anything else. Run .resumegen to generate a resume"
+#echo "Run Menu if you need anything else. Run .resumegen to generate a resume"
 echo "Exit ..."
 
 

@@ -1,0 +1,74 @@
+#!/bin/bash
+
+export PATH=$PATH:$(pwd)
+
+cat .files/banner
+
+jobkw () {
+    printf "Prepare your list of keywords\n"
+    read -r -p "What's the name of this job field? (1 word, don't add space): " jobkey
+    touch $jobkey
+
+    flag=false
+    printf "Adding keywords. Once you done, enter 'done' \n"
+    while ! $flag; do
+        read content
+        if [[ "$content" == "done" ]]; then
+            flag=true
+            break
+        fi
+        [[ ! -z "$content" ]] && printf "$content " >> $jobkey
+    done
+    echo "Finishing ... "
+    mv $jobkey .files/jobkeywords
+}
+
+printf "Greetings and welcome to your setup.\n
+Whenever you setup, the whole profile will be clear to default and empty
+\n\n\t Let's get started and set up your resume 
+
+\n\n"
+
+setname
+
+printf "\n\t Wonderful, now let's add some content to your qualification list.
+\n\n What qualify you as a potential employee? \n\n"
+
+echo "" > .files/qualification
+qualilisting
+
+printf "\n\t Now let's add a brief summary of who are you and what you passion about \n\n"
+
+read -r -p "Type your profile summary in one line: " pfsum
+echo "$pfsum" > .files/profileSummary
+
+printf "\n\t Let's talk about your experience. 
+\n\n\t Include the number of experience you want to add.
+\n Then proceed to include your position and your company in 1 line.
+\n e.g: Barista and Cashier at Tim Hortons.
+\n Then include the period of your employment. 
+\n If you make an mistake, you can always run this setup again, or simply go to menu and clear the experience \n"
+
+experience
+
+printf "\n\tDon't forget to include your Education!\n"
+
+edugen
+
+printf "\n\n One last step, add the keywords for one of your job here. 
+\n Remember to add keywords that you have in your Qualification Summary to maximize the chance it matches with Job Postings
+\n You can add as many job keywords that you can apply in the future as long as your qualification Summary has the keywords.
+\n Keywords are also used to determine the type of job when you invoke 'kwcheck', so be sure to add more of them to determine!"
+
+read -rp "How many set of keywords do you want to add? " number
+
+
+for i in $(seq 1 $number)
+do
+    jobkw
+done
+
+printf "\n Remember, all the menu can be accesses when typing 'menu' in your terminal.
+\n\n Thank you for using my script. Here's a cat."
+
+cat .files/kitty 

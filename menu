@@ -46,16 +46,7 @@ case "$choice" in
        exit 1
        ;;
     6)
-	flag=false
-	printf "Adding to your Qualification Summary list. Once done type 'done'\n"
-	while ! $flag; do
-        read content
-        if [[ "$content" == "done" ]]; then
-            flag=true
-            break
-        fi
-        [[ ! -z "$content" ]] && echo "$content" >> .files/qualification
-	done
+	qualilisting
 	exit 1
 	;;
    
