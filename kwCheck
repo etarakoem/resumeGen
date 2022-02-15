@@ -1,5 +1,21 @@
 #!/bin/bash
 cat .files/banner
+
+keyw () {
+
+    requirement=$1
+    counts=0
+    declare -a list=($(cat $2 | tr '\n' ' '))
+    
+    for item in ${list[@]}
+    do
+	if grep -q -i $item $requirement; then
+            ((counts++))
+	fi
+    done
+    return $counts
+}
+
 # Check if certain kw found in Job Posting
 printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D\n"
 
@@ -7,25 +23,41 @@ input=$(cat)
 
 touch rec
 echo $input > rec
+ 
+printf "========Job Matches========\n"
+cd .files/jobkeywords
+touch temp
 
-# Keywords files.
-qa=.files/QAKey
-web=.files/webKey
-security=.files/secKey
-dev=.files/devKey
+max=0
+title=""
+for i in *
+do
+    if [[ $i != "rec" ]] &&[[  $i != "README.md" ]]
+    then
+	keyw rec $i
+	count=$?
+	if [[ $count -gt $max ]]
+	then
+	    max=$count
+	    title=$i
+	fi
+	printf "$i mathces:\t$count\n" >> temp
+    fi
+done
 
-# Must include Keywords script
-secCount=`.files/keywords rec $security`
-webCount=`.files/keywords rec $web`
-qaCount=`.files/keywords rec $qa`
-devCount=`.files/keywords rec $dev`
+awk '{ $NF = "\t" $NF; print }' temp | column -t -s $'\t'
+printf "===========================\n\n"
 
-printf "
-========Job Matches========\n
-SoftDev matches:  $devCount\n
-Security matches: $secCount\n
-QA matches:       $qaCount\n
-WebDev matches:   $webCount\n
-===========================\n"
+rm temp
+
+if [[ $title == "" ]]
+then
+    printf "Job does not match database keywords\n Consider making more keywords \n"
+    title="general"
+else	 
+    printf "This job suit $title best\n\n===========================\n\n"
+fi
+
+cd ../../
 
 rm rec
