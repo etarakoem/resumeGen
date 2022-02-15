@@ -181,7 +181,7 @@ do
 	    max=$count
 	    title=$i
 	fi
-	printf "$i mathces:\t$count\n" >> temp
+	printf "$i matches:\t$count\n" >> temp
     fi
 done
 
