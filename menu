@@ -4,7 +4,7 @@ cat .files/banner
 touch exper
 fileName=.files/exper
 if [[ "$#" -eq 0 ]]; then
-printf "\nWould you like to renew your experience or add to the existing list?
+    printf "\nWould you like to renew your experience or add to the existing list?
 \n\n 1) Setting contacts information
 \n\n 2) Renew experience (Caution, this will overwrite your existing experience!)
 \n\n 3) Adding to exisitng experience list  
