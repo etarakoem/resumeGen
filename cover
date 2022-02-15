@@ -35,7 +35,7 @@ fileName=coverLetter_$companyName.html
 
 .files/htmlFormat $fileName
 
-printf "<p><strong>Job Number: </strong> $jobNum</p>" >> $fileName
+[[ ! -z "$jobNum" ]] && printf "<p><strong>Job Number: </strong> $jobNum</p>" >> $fileName
 
 read -rp "Availability to 8 months? " choice
 
