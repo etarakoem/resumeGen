@@ -3,14 +3,13 @@ cat .files/banner
 
 keyw () {
 
-    requirement=$1
     counts=0
     declare -a list=($(cat $2 | tr '\n' ' '))
-    
+
     for item in ${list[@]}
     do
-	if grep -q -i $item $requirement; then
-            ((counts++))
+	if grep -q -i $item $1; then
+	    ((counts++))
 	fi
     done
     return $counts
@@ -22,18 +21,22 @@ printf "\nPlease provide Company Requirement \nOnce done, press Ctrl + D\n"
 input=$(cat)
 
 touch rec
+echo "" > rec
 echo $input > rec
- 
-printf "========Job Matches========\n"
-cd .files/jobkeywords
-touch temp
 
+
+printf "========Job Matches========\n"
+mv rec .files/jobkeywords
+cd .files/jobkeywords
+
+touch temp
+echo "" > temp
 max=0
 title=""
 for i in *
 do
     if [[ $i != "rec" ]] && [[ $i != "temp" ]] && [[  $i != "README.md" ]]
-    then
+    then	
 	keyw rec $i
 	count=$?
 	if [[ $count -gt $max ]]
@@ -58,6 +61,7 @@ else
     printf "This job suit $title best\n\n===========================\n\n"
 fi
 
+rm rec
 cd ../../
 
-rm rec
+

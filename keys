@@ -28,7 +28,7 @@ removeFile () {
 jobkw () {
     printf "Prepare your list of keywords\n"
     read -r -p "What's the name of this job field? (1 word, don't add space): " jobkey
-    touch $jobkey
+    [[ ! -d ".files/jobkeywords/$jobkey" ]] && touch $jobkey
 
     flag=false
     printf "Adding keywords. Once you done, enter 'done' \n"
@@ -46,7 +46,7 @@ jobkw () {
 
 main () {
     printf "Greetings, choose an option for your keywords setup: 
-    \n\t1) Make new job keywords
+    \n\t1) Make new or add to existing job keywords
     \n\t2) Remove existing job keywords \n
     \tq) Quit\n\n"
     read -r -p "Choose an option, press 1, 2, or q to quit: " response

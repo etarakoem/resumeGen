@@ -117,14 +117,13 @@ touch rec
 echo $input > rec
 
 keyw () {
-
-    requirement=$1
+    
     counts=0
     declare -a list=($(cat $2 | tr '\n' ' '))
     
     for item in ${list[@]}
     do
-	if grep -q -i $item $requirement; then
+	if grep -q -i $item $1; then
             ((counts++))
 	fi
     done
