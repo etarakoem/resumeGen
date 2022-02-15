@@ -57,7 +57,13 @@ Copy these steps for installing into your terminal. Run this script using termin
   kwCheck
 ```
 
-* Access menu:
+* Generate only your Resume with the Setup's information by running
+
+```
+  mew
+```
+
+* Customize your resume by accessing menu:
 ```
   menu
 ```

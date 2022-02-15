@@ -39,60 +39,6 @@ read -rp "Job number: " jobNum
 printf "Please provide Company name \nCompany name: "
 read companyName
 
-# Get date today
-day=`date "+%B %d, %Y"`
-
-# Get company's goal
-read -rp "Company's Goal: " companyGoal
-
-# Generate the file (You should make the file name as the name of the company you're applying)
-NameSet=$companyName
-companyName="${companyName// /_}"
-
-fileName=coverLetter_$companyName.html
-
-.files/htmlFormat $fileName
-
-[[ ! -z "$jobNum" ]] && printf "<p><strong>Job Number: </strong> $jobNum</p>" >> $fileName
-printf "<p><strong>Availability: </strong> 4 months (May-August 2021)</p>" >> $fileName
-printf "<p>$day</p>" >> $fileName
-printf "<p>Dear Hiring Manager</p>" >> $fileName
-
-if [ "$#" -eq 0 ]
-then
-    printf "<p>It is my great pleasure to apply for the Computer Science Co-op role with $NameSet as posted internally by the Ryerson Co-op Office. As a 2nd-year Computer Science Co-op student at Ryerson University who is passionate about analyzing problems, learning and analyzing malware for cybersecurity issues, this opportunity caught my attention. With my proven academic excellence and certificate, I am confident that my familiarity with Cybersecurity, Web server networking, Penetration testing knowledge would qualify me as a competitive candidate for this position.</p>" >> $fileName
-
-    printf "<p>$NameSet $companyGoal aligns with my passion for computer security. Directly related to the requirements of this role, my main studies focus deeply on ethical hacking and prepared me well to do penetration testing. To prove this matter, I spent 1 year and a half years self-studying and preparing for the OSCP (Offensive Security Certified Professional) certificate, which focuses heavily on penetration testing and writing reports. During this time, I managed to analyze and hack into a phishing website, which then exposed the list of victims who fell into this trap to provide their login credentials. I retrieved 3500 victims' login credentials and made a short video clip out of it to raise awareness for the community, which reached up to 1200 viewers. As a Co-op student, I would love to contribute my understanding and skill in terms of protecting clients and implementing safety measures to fight against data breaches and system severity.</p>" >> $fileName
-else
-    printf "<p>It is my great pleasure to apply for the Computer Science Co-op role with $NameSet as posted internally by the Ryerson Co-op Office. As a 2nd-year Computer Science Co-op student at Ryerson University who is passionate about analyzing problems, learning and analyzing malware for cybersecurity issues, this opportunity caught my attention. With my proven academic excellence and certificate, I am confident that my familiarity with Cybersecurity, Scripting, Penetration testing knowledge would qualify me as a competitive candidate for this position.</p>" >> $fileName
-
-    printf "<p>$NameSet $companyGoal aligns with my passion for automating scripting. Directly related to the requirements of this role, my main studies focus deeply on ethical hacking and prepared me well to do penetration testing. To prove this matter, I spent 1 year and a half years self-studying and preparing for the OSCP (Offensive Security Certified Professional) certificate, which focuses heavily on penetration testing and writing reports. During this time, I managed to adapt Bash scripting skill into automating my own resume and cover letter generator. My script scans for specific keywords on the job's description and generates a corresponding resume, reaching 40 resumes applications under 4 hours. As a Co-op student, I would love to contribute my understanding and skill in terms of making automated scripts to automate repeatable tasks, build new secured applications, or protect clients and implement safety measures to fight against data breaches and system severity.</p>" >> $fileName
-fi
-
-printf "<p>Thank you for your time and consideration. With the details listed above that I can bring to $NameSet, I have the commitment and a strong passion for security to succeed as a Co-op student. I would appreciate the chance to meet with you to speak more about this opportunity. 
-Sincerely,</p>
-" >> $fileName
-
-printf "<p>Phuc Hua</p>\n
-</body> 
-</html>" >> $fileName
-
-profile=`cat profilename | tr ' ' '_'`
-if [[ -z "$jobNum" ]];
-then
-    namePDF=$profile"_CoverLetter.pdf"
-else
-    namePDF=$profile"_"$jobNum"_CoverLetter.pdf"
-fi
-
-.files/pdf $fileName $namePDF
- 
-rm $fileName  
-
-echo "File successfully save as $namePDF"
-
-cat .files/banner
-
 printf "\nPlease provide Company Requirement \nOnce       
 done, press Enter then Ctrl + D\n"
 
@@ -256,8 +202,7 @@ rm sampleResume.html
 
 if [[ $folderFlag == "true" ]]; then
     mv $finalname $folder
-    mv $namePDF $folder
-    echo "Successfully create $finalname and $namePDF in $folder" 
+    echo "Successfully create $finalname in $folder" 
 else
     echo "Successfully create $finalname"
 fi
