@@ -63,7 +63,10 @@ message="4 months (May-September 2022)"
 
 case "$choice" in
     8)
-	message="8 months (May 2022 -January 2023)"
+	message="8 months (May 2022 - January 2023)"
+	;;
+    12)
+	message="12 months (May 2022 - May 2023)"
 	;;
     16)
 	message="16 months (May 2022 - September 2023)"
@@ -264,12 +267,10 @@ cat .files/exper >> $outfile
 # Adding Education here
 cat .files/eduPart >> $outfile
 
-finalname=`cat profilename | tr ' ' '_'`
-
 if [[ -z "$jobnum" ]]; then
-    finalname=$finalname"_"$jobNum"_Resume.pdf"
+    finalname=$profile"_"$jobNum"_Resume.pdf"
 else
-    finalname=$finalname"_Resume.pdf"
+    finalname=$profile"_Resume.pdf"
 fi
 .files/pdf $outfile $finalname
 rm sampleResume.html
