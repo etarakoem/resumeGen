@@ -95,8 +95,8 @@ profsum () {
     printf "</p>\n" >> $outfile
 }
 
-
-printf "========Job Matches========\n\n"
+printf "========Job Matches========\n"
+touch temp
 
 max=0
 title=""
@@ -111,10 +111,14 @@ do
 	    max=$count
 	    title=$i
 	fi
-	printf "$i mathces: $count\n\n"
+	printf "$i mathces:\t$count\n" >> temp
     fi
 done
+
+awk '{ $NF = "\t" $NF; print }' temp | column -t -s $'\t'
 printf "===========================\n\n"
+
+rm temp
 
 if [[ $title == "" ]]
 then

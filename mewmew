@@ -45,6 +45,8 @@ day=`date "+%B %d, %Y"`
 # Get company's goal
 read -rp "Company's Goal: " companyGoal
 
+[[ -z "$companyGoal" ]] && companyGoal="'s requirement"
+
 # Generate the file (You should make the file name as the name of the company you're applying)
 NameSet=$companyName
 companyName="${companyName// /_}"
@@ -148,7 +150,8 @@ profsum () {
 }
 
 
-printf "========Job Matches========\n\n"
+printf "========Job Matches========\n"
+touch temp
 
 max=0
 title=""
@@ -163,10 +166,14 @@ do
 	    max=$count
 	    title=$i
 	fi
-	printf "$i mathces: $count\n\n"
+	printf "$i mathces:\t$count\n" >> temp
     fi
 done
+
+awk '{ $NF = "\t" $NF; print }' temp | column -t -s $'\t'
 printf "===========================\n\n"
+
+rm temp
 
 if [[ $title == "" ]]
 then
