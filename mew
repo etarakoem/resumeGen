@@ -8,7 +8,15 @@ printf "Creating your folder for your resume or having an existing folder alread
 read -rp "Choose your option: 1,2,3 or q to quit: " choice
 case "$choice" in
     1) read -rp "Go to folder: " folder
-       folderFlag=true
+       if [[ ! -d "$folder" ]] && [[ ! -z "$folder" ]]; then 
+	   echo "Folder not Found, creating new folder $folder "
+	   mkdir $folder
+       elif [[ -z "$folder" ]]; then
+	   echo "Empty folder name, please try again "
+	   mew
+	   exit 1
+       fi
+	   folderFlag=true
        ;;
     2)
 	read -rp "Create folder name: " folder
@@ -24,8 +32,7 @@ case "$choice" in
 esac
 
 # Get Job number
-printf "Job Number: "
-read jobNum
+read -rp "Job number: " jobNum
 
 # Get Company name
 
@@ -36,8 +43,7 @@ read companyName
 day=`date "+%B %d, %Y"`
 
 # Get company's goal
-printf "Company's Goal: "
-read companyGoal
+read -rp "Company's Goal: " companyGoal
 
 # Generate the file (You should make the file name as the name of the company you're applying)
 NameSet=$companyName
@@ -47,7 +53,7 @@ fileName=coverLetter_$companyName.html
 
 .files/htmlFormat $fileName
 
-printf "<p><strong>Job Number: </strong> $jobNum</p>" >> $fileName
+[[ ! -z "$jobNum" ]] && printf "<p><strong>Job Number: </strong> $jobNum</p>" >> $fileName
 printf "<p><strong>Availability: </strong> 4 months (May-August 2021)</p>" >> $fileName
 printf "<p>$day</p>" >> $fileName
 printf "<p>Dear Hiring Manager</p>" >> $fileName
@@ -72,7 +78,7 @@ printf "<p>Phuc Hua</p>\n
 </html>" >> $fileName
 
 profile=`cat profilename | tr ' ' '_'`
-if test -z "$jobNum"
+if [[ -z "$jobNum" ]];
 then
     namePDF=$profile"_CoverLetter.pdf"
 else
@@ -144,7 +150,7 @@ profsum () {
 }
 
 
-printf "========Job Matches========\n"
+printf "========Job Matches========\n\n"
 
 max=0
 title=""
@@ -159,17 +165,17 @@ do
 	    max=$count
 	    title=$i
 	fi
-	printf "$i mathces: $count\n"
+	printf "$i mathces: $count\n\n"
     fi
 done
-printf "===========================\n"
+printf "===========================\n\n"
 
 if [[ $title == "" ]]
 then
-    printf "Job does not match database keywords\n Consider making more database by invoking 'keys'\n"
+    printf "Job does not match database keywords\n Consider making more keywords \n"
     title="general"
 else	 
-    printf "This job suit $title best\n===========================\n"
+    printf "This job suit $title best\n\n===========================\n\n"
 fi
 
 declare -a listquali
@@ -239,7 +245,12 @@ cat .files/exper >> $outfile
 cat .files/eduPart >> $outfile
 
 finalname=`cat profilename | tr ' ' '_'`
-finalname=$finalname"_"$jobNum"_Resume.pdf"
+
+if [[ -z "$jobnum" ]]; then
+    finalname=$finalname"_"$jobNum"_Resume.pdf"
+else
+    finalname=$finalname"_Resume.pdf"
+fi
 .files/pdf $outfile $finalname
 rm sampleResume.html
 
