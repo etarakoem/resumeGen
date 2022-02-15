@@ -37,7 +37,6 @@ fileName=coverLetter_$companyName.html
 
 printf "<p><strong>Job Number: </strong> $jobNum</p>" >> $fileName
 
-printf "<p><strong>Availability: </strong> 4 months (May-August 2021)</p>" >> $fileName
 read -rp "Availability to 8 months? " choice
 
 message="4 months (May-September 2022)"

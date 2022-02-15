@@ -3,8 +3,7 @@ cat .files/banner
 
 printf "Creating your folder for your resume or having an existing folder already? \n\n
 \t 1) Create files for specific folder\n\n
-\t 2) Creating a new folder\n\n
-\t 3) Don't create any folder, use current folder\n\n"
+\t 2) Don't create any folder, use current folder\n\n"
 read -rp "Choose your option: 1,2,3 or q to quit: " choice
 case "$choice" in
     1) read -rp "Go to folder: " folder
@@ -18,11 +17,6 @@ case "$choice" in
        fi
 	   folderFlag=true
        ;;
-    2)
-	read -rp "Create folder name: " folder
-	mkdir $folder
-	folderFlag=true
-	;;
     q)
 	exit 1
 	;;
