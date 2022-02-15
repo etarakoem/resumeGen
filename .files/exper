@@ -1,1 +1,31 @@
 
+<div class="column left">
+<p><strong>Cover Letter and Resume Generator script - Side project</strong></p></div>
+<div class="column right">
+<p>February 2022</p></div><ul>
+<li>Design an automated Bash script for Linux and MacOS to generate cover letters base for job posting base on job numbers, company name and company goals, generating cover letters in less than a minute.</li>
+<li>Develop and testing an automate bash script which classifies job’s position by scanning for keywords from job posting, then generate a corresponding HTML resume and convert to pdf.</li>
+<li>Design a friendly UX/UI for public use, with customized parameters for anyone to create their resume, increase the community's employability</li>
+</ul>
+<div class="column left">
+<p><strong>Game design for ToHacks 2021 - Hackathon</strong></p></div>
+<div class="column right">
+<p>May 2021</p></div><ul>
+<li>Collaborate with my partner to design a Text-based adventure game for the Hackathon.</li>
+<li>Design an automated Python script for my peer to assist the story input and finish the game within 2 days threshold. https://github.com/etarakoem/Trapped_chatbot_game</li>
+</ul>
+<div class="column left">
+<p><strong>Password Management solution for cybersecurity problem - SIC</strong></p></div>
+<div class="column right">
+<p>October - November 2021</p></div><ul>
+<li>Leading a team of 2 to design a prototype for a password management tool and progressing effectively by planning meetings to meet the requirement of the program.</li>
+<li>Came up with an innovative solution by combining more than two factors to identify identities digitally, resulting in a well-done presentation for the solution.</li>
+</ul>
+<div class="column left">
+<p><strong>Social Media’s accounts security consultant.</strong></p></div>
+<div class="column right">
+<p>January - March 2021</p></div><ul>
+<li>Consulting to provide threat factors of account security by investigating account hijacking incidents on social media then explaining to prevent clients’ accounts from being stolen again.</li>
+<li>Raising cybersecurity awareness to the Vietnamese Community by making video clips about exploring phishing sites in a virtual hacking environment. Successfully hack through the malicious phishing site and retrieve a list of 3500 hacked social media accounts.</li>
+<li>Proof of Concept: https://github.com/etarakoem/PhishingProject/blob/main/README.md</li>
+</ul>
