@@ -3,36 +3,6 @@ cat .files/banner
 
 printf "Creating your folder for your resume or having an existing folder already? \n\n
 \t 1) Create files for specific folder\n\n
-\t 2) Creating a new folder\n\n
-\t 3) Don't create any folder, use current folder\n\n"
-read -rp "Choose your option: 1,2,3 or q to quit: " choice
-case "$choice" in
-    1) read -rp "Go to folder: " folder
-       if [[ ! -d "$folder" ]] && [[ ! -z "$folder" ]]; then 
-	   echo "Folder not Found, creating new folder $folder "
-	   mkdir $folder
-       elif [[ -z "$folder" ]]; then
-	   echo "Empty folder name, please try again "
-	   mew
-	   exit 1
-       fi
-	   folderFlag=true
-       ;;
-    2)
-	read -rp "Create folder name: " folder
-	mkdir $folder
-	folderFlag=true
-	;;
-    q)
-	exit 1
-	;;
-    *)
-	folderFlag=false
-	;;
-esac
-
-printf "Creating your folder for your resume or having an existing folder already? \n\n
-\t 1) Create files for specific folder\n\n
 \t 2) Don't create any folder, use current folder\n\n"
 read -rp "Choose your option: 1,2,3 or q to quit: " choice
 case "$choice" in
@@ -66,6 +36,7 @@ read companyName
 printf "\nPlease provide Company Requirement \nOnce       
 done, press Enter then Ctrl + D\n"
 
+[[ ! -d ".files/keywords ]] && mkdir .files/keywords
 cd .files/jobkeywords
 
 input=$(cat)

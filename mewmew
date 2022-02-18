@@ -108,6 +108,7 @@ echo "File successfully save as $namePDF"
 printf "\nPlease provide Company Requirement \nOnce       
 done, press Enter then Ctrl + D\n"
 
+[[ ! -d .files/keywords ]] && mkdir .files/keywords
 cd .files/jobkeywords
 
 input=$(cat)
