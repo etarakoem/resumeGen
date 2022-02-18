@@ -22,10 +22,9 @@ Greate news! ResumeGen is now open for public use, with customizable resume and 
 * Git clonning
 Copy these steps for installing into your terminal. Run this script using terminals.
 ```
-  cd ~/Desktop
+  cd ~/
   git clone https://github.com/etarakoem/resumeGen.git 
   export PATH=$PATH:$(pwd)
-
 ```
 
 ### Executing program
