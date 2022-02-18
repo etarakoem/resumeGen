@@ -17,13 +17,6 @@ Greate news! ResumeGen is now open for public use, with customizable resume and 
 * This script works with macOS and Linux
 * [Headless Chrome convert html to pdf](https://developers.google.com/web/updates/2017/04/headless-chrome) or if you already have google Chrome installed on your Mac
 
-* Some set up, including setting your own Resume format, with names, contact number, keywords for job you're looking for, the work experience files. If you want to edit these keywords file,
-```
-  cd .files
-  ls
-```
-Adding function and modifiers will be update in the future
-
 ### Installing
 
 * Git clonning
@@ -31,6 +24,8 @@ Copy these steps for installing into your terminal. Run this script using termin
 ```
   cd ~/Desktop
   git clone https://github.com/etarakoem/resumeGen.git 
+  export PATH=$PATH:$(pwd)
+
 ```
 
 ### Executing program
@@ -46,8 +41,6 @@ Copy these steps for installing into your terminal. Run this script using termin
 
 * Alternatively, you can simply updating the Path to ensure this tool runs without issues (Copy and paste to your terminal)
 ```
-  cd resumeGen
-  export PATH=$PATH:$(pwd)
 ```
 
 ### For Public use:
