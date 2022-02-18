@@ -24,6 +24,10 @@ Copy these steps for installing into your terminal. Run this script using termin
 ```
   cd ~/
   git clone https://github.com/etarakoem/resumeGen.git 
+```
+
+Then copy and paste this in:
+```
   export PATH=$PATH:$(pwd)
 ```
 
