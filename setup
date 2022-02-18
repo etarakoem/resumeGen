@@ -7,8 +7,9 @@ cat .files/banner
 jobkw () {
     printf "Prepare your list of keywords\n"
     read -r -p "What's the name of this job field? (1 word, don't add space): " jobkey
+    jobkey="${jobkey// /_}"
     touch $jobkey
-
+    
     flag=false
     printf "Adding keywords. Once you done, enter 'done' \n"
     while ! $flag; do
