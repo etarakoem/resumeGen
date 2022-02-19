@@ -36,7 +36,7 @@ read companyName
 printf "\nPlease provide Company Requirement \nOnce       
 done, press Enter then Ctrl + D\n"
 
-[[ ! -d ".files/keywords ]] && mkdir .files/keywords
+[[ ! -d ".files/jobkeywords ]] && mkdir .files/keywords
 cd .files/jobkeywords
 
 input=$(cat)
