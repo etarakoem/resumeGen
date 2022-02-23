@@ -24,6 +24,12 @@ jobkw () {
     mv $jobkey .files/jobkeywords
 }
 
+echo "" > .files/profileSummary
+echo "" > .files/exper
+echo "" > .files/eduPart
+echo "" > .files/qualification
+echo "" > .files/profile
+
 printf "Greetings and welcome to your setup.\n
 Whenever you setup, the whole profile will be clear to default and empty
 \n\n\t Let's get started and set up your resume 
