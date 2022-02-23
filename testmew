@@ -1,0 +1,220 @@
+#!/bin/bash
+cat .files/banner
+
+printf "Creating your folder for your resume or having an existing folder already? \n\n
+\t 1) Create files for specific folder\n\n
+\t 2) Don't create any folder, use current folder\n\n"
+read -rp "Choose your option: 1,2,3 or q to quit: " choice
+case "$choice" in
+    1) read -rp "Go to folder: " folder
+       if [[ ! -d "$folder" ]] && [[ ! -z "$folder" ]]; then 
+	   echo "Folder not Found, creating new folder $folder "
+	   mkdir $folder
+       elif [[ -z "$folder" ]]; then
+	   echo "Empty folder name, please try again "
+	   mew
+	   exit 1
+       fi
+	   folderFlag=true
+       ;;
+    q)
+	exit 1
+	;;
+    *)
+	folderFlag=false
+	;;
+esac
+
+# Get Job number
+read -rp "Job number: " jobNum
+
+# Get Company name
+
+printf "Please provide Company name \nCompany name: "
+read companyName
+
+printf "\nPlease provide Company Requirement \nOnce       
+done, press Enter then Ctrl + D\n"
+
+[[ ! -d ".files/jobkeywords" ]] && mkdir .files/keywords
+cd .files/jobkeywords
+
+input=$(cat)
+
+touch rec
+
+echo $input > rec
+
+keyw () {
+
+    requirement=$1
+    counts=0
+    declare -a list=($(cat $2 | tr '\n' ' '))
+    
+    for item in ${list[@]}
+    do
+	if grep -q -i $item $requirement; then
+            ((counts++))
+	fi
+    done
+    return $counts
+}
+
+htmlList () {
+    line=$3
+    content=`sed "${line}q;d" $2`
+    echo "<li>$content</li>" >> $1
+}
+
+htmlQualiSum () {
+    local out=$1
+    local file=$2
+    shift 2
+                                                              
+    echo "<h2>Qualification Summary</h2>" >> $out
+    
+    echo "<ul>" >> $out
+    arr=("$@")
+    for i in "${arr[@]}"
+    do
+        htmlList $out $file $i
+    done
+    echo "</ul>" >> $out
+}
+
+profsum () {
+
+    echo "<h2>Profile Summary</h2>" >> $outfile
+    printf "\n<p>" >> $outfile
+    cat ".files/profileSummary" >> $outfile
+    printf "</p>\n" >> $outfile
+}
+
+printf "========Job Matches========\n"
+touch temp
+
+max=0
+title=""
+for i in *
+do
+    if [[ $i != "rec" ]] && [[ $i != "temp" ]] && [[  $i != "README.md" ]]
+    then
+	keyw rec $i
+	count=$?
+	if [[ $count -gt $max ]]
+	then
+	    max=$count
+	    title=$i
+	fi
+	printf "$i matches:\t$count\n" >> temp
+    fi
+done
+
+awk '{ $NF = "\t" $NF; print }' temp | column -t -s $'\t'
+printf "===========================\n\n"
+
+rm temp
+
+if [[ $title == "" ]]
+then
+    printf "Job does not match database keywords\n Consider making more keywords \n"
+    title="general"
+else	 
+    printf "This job suit $title best\n\n===========================\n\n"
+fi
+
+declare -a listquali
+
+touch requirement
+cat ../qualification > requirement
+
+declare -a list=($(cat $title | tr '\n' ' '))
+declare -a listquali
+    
+
+for item in ${list[@]}
+do
+    listquali+=(`grep -ni "$item" requirement | cut -f1 -d:`)
+done
+
+rm requirement
+echo "Req: $requirement"
+
+echo "List: ${list[@]}"
+echo " List qualis: ${listquali[@]}"
+
+sorted=($(echo "${listquali[@]}" | tr ' ' '\n' | sort -nu | tr '\n' ' '))
+
+echo " Sorted:  ${sorted[@]} "
+
+for i in $(seq 1 5)
+do
+    if [[ ${#sorted[@]} -lt 6 ]] && [[ ! " ${sorted[*]}" =~ " $i " ]]
+    then
+        sorted+=($i)
+    fi
+done
+
+echo "Sorted after: ${sorted[@]}"
+
+sorted=($(echo "${sorted[@]}" | tr ' ' '\n' | sort -nu | tr '\n' ' '))
+
+outfile=sampleResume.html
+
+cd ../../
+
+#HTML making process
+# Add profile
+cat .files/profile > $outfile
+
+
+# Making qualification
+source=".files/rec"
+qualify=".files/qualification"
+
+printf "Choosing Profile Summary, Qualification Summary or both?\n "
+printf "Choose an option: \n
+       1) Profile Summary\n
+       2) Qualification Summary\n
+       3) both\n\n"
+read -r -p "Your choice: " choice
+case "$choice" in
+    1)
+	profsum
+	;;
+    2)
+	htmlQualiSum $outfile $qualify ${sorted[@]}
+	;;
+    3)
+	profsum
+	htmlQualiSum $outfile $qualify ${sorted[@]}
+	;;
+    q)
+	exit 1
+	;;
+esac
+
+echo "<h2>Experience</h2>">> $outfile
+
+# Adding experience here
+cat .files/exper >> $outfile
+
+# Adding Education here
+cat .files/eduPart >> $outfile
+
+finalname=`cat profilename | tr ' ' '_'`
+
+if [[ -z "$jobnum" ]]; then
+    finalname=$finalname"_"$jobNum"_Resume.pdf"
+else
+    finalname=$finalname"_Resume.pdf"
+fi
+.files/pdf $outfile $finalname
+rm sampleResume.html
+
+if [[ $folderFlag == "true" ]]; then
+    mv $finalname $folder
+    echo "Successfully create $finalname in $folder" 
+else
+    echo "Successfully create $finalname"
+fi
