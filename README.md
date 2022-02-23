@@ -33,18 +33,26 @@ Copy these steps for installing into your terminal. Run this script using termin
 
 Then copy and paste this in:
 ```
+  cd resumeGen
   export PATH=$PATH:$(pwd)
 ```
 
 ### Executing program
-* Before running, update this repo by running
+* Open this tool via terminal with
+
 ```
- ./update
+ cd 
+ cd resumeGen
+```
+
+* Update this repo to up-to-date by running
+```
+ update
 ```
 
 * Set up your profile by running
 ```
-  ./setup
+  setup
 ```
 
 * Alternatively, you can simply updating the Path to ensure this tool runs without issues (Copy and paste to your terminal)
