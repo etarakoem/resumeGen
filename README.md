@@ -19,6 +19,11 @@ Greate news! ResumeGen is now open for public use, with customizable resume and 
 
 ### Installing
 
+* Installing and set up video:
+
+https://user-images.githubusercontent.com/50989367/155335189-bb6f3df8-2fd0-4a2c-8b52-788e2354bf95.mov
+
+
 * Git clonning
 Copy these steps for installing into your terminal. Run this script using terminals.
 ```
@@ -170,13 +175,4 @@ the default is 1 for Scripting Job requirement, and none for Cyber security rela
 
 Contributors by Samuel
 
-## Requirement:
-
-- [Headless Chrome convert html to pdf](https://developers.google.com/web/updates/2017/04/headless-chrome) or if you already have google Chrome installed on your Mac
-
-- Some set up, including setting your own Resume format, with names, contact number, keywords for job you're looking for, the work experience files. If you want to edit these keywords file,
-```
-  cd .files
-  ls
-```
 - Samuel -
