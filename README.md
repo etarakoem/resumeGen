@@ -21,8 +21,7 @@ Greate news! ResumeGen is now open for public use, with customizable resume and 
 
 * Installing and set up video:
 
-https://user-images.githubusercontent.com/50989367/155335189-bb6f3df8-2fd0-4a2c-8b52-788e2354bf95.mov
-
+https://user-images.githubusercontent.com/50989367/155397724-94e00a53-5e66-43c4-a221-9f84bf83970d.MOV
 
 * Git clonning
 Copy these steps for installing into your terminal. Run this script using terminals.
