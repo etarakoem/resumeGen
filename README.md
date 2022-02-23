@@ -21,7 +21,8 @@ Greate news! ResumeGen is now open for public use, with customizable resume and 
 
 * Installing and set up video:
 
-https://user-images.githubusercontent.com/50989367/155397724-94e00a53-5e66-43c4-a221-9f84bf83970d.MOV
+https://user-images.githubusercontent.com/50989367/155398802-e1c2d8aa-4a2f-4839-b365-2ae8278c729e.mov
+
 
 * Git clonning
 Copy these steps for installing into your terminal. Run this script using terminals.
@@ -54,6 +55,17 @@ Then copy and paste this in:
   setup
 ```
 
+You can follow this video to complete the set up
+
+
+https://user-images.githubusercontent.com/50989367/155399268-2eb879d7-c9d0-4223-8cb0-45ef062d503f.mov
+
+
+
+https://user-images.githubusercontent.com/50989367/155399560-dcf1bb13-3b37-43d6-a3f7-7633fc72ff43.mov
+
+
+
 ### For Public use:
 
 * To check for keywords scanned from job posting
@@ -66,6 +78,11 @@ Then copy and paste this in:
 ```
   mew
 ```
+You can check this video for the Running sample:
+
+
+https://user-images.githubusercontent.com/50989367/155400338-5fbd587c-a972-4529-9666-e1e352fad36d.mov
+
 
 * Customize your resume by accessing menu:
 ```
