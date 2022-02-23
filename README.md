@@ -55,10 +55,6 @@ Then copy and paste this in:
   setup
 ```
 
-* Alternatively, you can simply updating the Path to ensure this tool runs without issues (Copy and paste to your terminal)
-```
-```
-
 ### For Public use:
 
 * To check for keywords scanned from job posting
