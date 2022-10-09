@@ -39,17 +39,17 @@ fileName=coverLetter_$companyName.html
 
 read -rp "Availability to 8 months? " choice
 
-message="4 months (May-September 2022)"
+message="4 months "
 
 case "$choice" in
     8)
-	message="8 months (May 2022 -January 2023)"
+	message="8 months "
 	;;
     12)
-	message="12 months (May 2022 - May 2023)"
+	message="12 months "
 	;;
     16)
-	message="16 months (May 2022 - September 2023)"
+	message="16 months" 
 	;;
 esac
 printf "<p><strong>Availability: </strong> $message </p>" >> $fileName
@@ -59,17 +59,17 @@ printf "<p>Dear Hiring Manager</p>" >> $fileName
 
 if [ "$#" -eq 0 ]
 then
-    printf "<p>It is my great pleasure to apply for the Computer Science Co-op role with $NameSet as posted internally by the Ryerson Co-op Office. As a 2nd-year Computer Science Co-op student at Ryerson University who is passionate about analyzing problems, learning and analyzing malware for cybersecurity issues, this opportunity caught my attention. With my proven academic excellence and certificate, I am confident that my familiarity with Cybersecurity, Web server networking, Penetration testing knowledge would qualify me as a competitive candidate for this position.</p>" >> $fileName
+    printf "<p>It is my great pleasure to apply for the Computer Science Co-op role with $NameSet as posted internally by the Ryerson Co-op Office. As a 3rd-year Computer Science Co-op student at Ryerson University who is passionate about analyzing problems, learning and analyzing malware for cybersecurity issues, this opportunity caught my attention. With my proven academic excellence and certificate, I am confident that my familiarity with Cybersecurity, Web server networking, Penetration testing knowledge would qualify me as a competitive candidate for this position.</p>" >> $fileName
 
-    printf "<p>$NameSet$companyGoal aligns with my passion for computer security. Directly related to the requirements of this role, my main studies focus deeply on ethical hacking and prepared me well to do penetration testing. To prove this matter, I spent 1 year and a half years self-studying and preparing for the OSCP (Offensive Security Certified Professional) certificate, which focuses heavily on penetration testing and writing reports. During this time, I managed to analyze and hack into a phishing website, which then exposed the list of victims who fell into this trap to provide their login credentials. I retrieved 3500 victims' login credentials and made a short video clip out of it to raise awareness for the community, which reached up to 1200 viewers. As a Co-op student, I would love to contribute my understanding and skill in terms of protecting clients and implementing safety measures to fight against data breaches and system severity.</p>" >> $fileName
+    printf "<p>$NameSet$companyGoal aligns with my passion for computer security. Directly related to the requirements of this role, my main studies focus deeply on ethical hacking and prepared me well to do penetration testing. To prove this matter, when I was doing my QA Analyst Co-op with theScore, I express my passion for cyber security and get approve on trying to hack through theScore’s Android app. I successfully find a way to break down the app’s SSL Pinning Certificate feature by reverse engineering the *.apk file and documenting everything. Impress by my work, they give me a higher ground to try and hack through their web application. The web app is more secure, probably because web vulnerabilities are updated everyday, so I didn’t find any way to hack through. It is still a very good experience. As a co-op student with Exiger, I would love to contribute similar results in terms of protecting clients and implementing safety measures to fight against data breaches and system severity.<p>" >> $fileName 
 else
-    printf "<p>It is my great pleasure to apply for the Computer Science Co-op role with $NameSet as posted internally by the Ryerson Co-op Office. As a 2nd-year Computer Science Co-op student at Ryerson University who is passionate about analyzing problems, learning and analyzing malware for cybersecurity issues, this opportunity caught my attention. With my proven academic excellence and certificate, I am confident that my familiarity with Cybersecurity, Scripting, Penetration testing knowledge would qualify me as a competitive candidate for this position.</p>" >> $fileName
+    printf "<p>It is my great pleasure to apply for the Computer Science Co-op role with $NameSet as posted internally by the Ryerson Co-op Office. As a 3rd-year Computer Science Co-op student at Ryerson University who is passionate about analyzing problems, learning and analyzing malware for cybersecurity issues, this opportunity caught my attention. With my proven academic excellence and certificate, I am confident that my familiarity with Cybersecurity, Scripting, Penetration testing knowledge would qualify me as a competitive candidate for this position.</p>" >> $fileName
 
-    printf "<p>$NameSet $companyGoal aligns with my passion for automating scripting. Directly related to the requirements of this role, my main studies focus deeply on ethical hacking and prepared me well to do penetration testing. To prove this matter, I spent 1 year and a half years self-studying and preparing for the OSCP (Offensive Security Certified Professional) certificate, which focuses heavily on penetration testing and writing reports. During this time, I managed to adapt Bash scripting skill into automating my own resume and cover letter generator. My script scans for specific keywords on the job's description and generates a corresponding resume, reaching 40 resumes applications under 4 hours. As a Co-op student, I would love to contribute my understanding and skill in terms of making automated scripts to automate repeatable tasks, build new secured applications, or protect clients and implement safety measures to fight against data breaches and system severity.</p>" >> $fileName
+printf "<p>$NameSet$companyGoal aligns with my passion for computer security. Directly related to the requirements of this role, my main studies focus deeply on ethical hacking and prepared me well to do penetration testing. To prove this matter, when I was doing my QA Analyst Co-op with theScore, I express my passion for cyber security and get approve on trying to hack through theScore’s Android app. I successfully find a way to break down the app’s SSL Pinning Certificate feature by reverse engineering the *.apk file and documenting everything. Impress by my work, they give me a higher ground to try and hack through their web application. The web app is more secure, probably because web vulnerabilities are updated everyday, so I didn’t find any way to hack through. It is still a very good experience. As a co-op student with $NameSet, I would love to contribute similar results in terms of protecting clients and implementing safety measures to fight against data breaches and system severity.<p>" >> $fileName
 fi
 
 printf "<p>Thank you for your time and consideration. With the details listed above that I can bring to $NameSet, I have the commitment and a strong passion for security to succeed as a Co-op student. I would appreciate the chance to meet with you to speak more about this opportunity. 
-Sincerely,</p>
+ Sincerely,</p>
 " >> $fileName
 
 printf "<p>Phuc Hua</p>\n
